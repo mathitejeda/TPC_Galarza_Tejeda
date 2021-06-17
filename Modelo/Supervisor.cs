@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class Supervisor
+    class Supervisor:Persona
     {
+        List<Tecnico> tecnicosACargo { get; set; }
     }
 }

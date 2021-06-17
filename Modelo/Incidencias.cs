@@ -8,5 +8,13 @@ namespace Modelo
 {
     class Incidencias
     {
+        int id;
+        Producto producto;
+        Cliente cliente;
+        Tecnico tecnico;
+        string detalle;
+        int estado;
+        DateTime fechaIngreso;
+        DateTime fechaFinalizacion;
     }
 }

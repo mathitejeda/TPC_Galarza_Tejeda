@@ -8,5 +8,6 @@ namespace Modelo
 {
     class Tecnico
     {
+        string Especialidad;
     }
 }

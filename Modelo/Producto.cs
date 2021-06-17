@@ -8,5 +8,9 @@ namespace Modelo
 {
     class Producto
     {
+        string nombre;
+        string detalle;
+        int numeroSerie;
+        string condicion;
     }
 }
