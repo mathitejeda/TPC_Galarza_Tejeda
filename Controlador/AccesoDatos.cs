@@ -12,5 +12,42 @@ namespace Controlador
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
+
+        public AccesoDatos()
+        {
+            conexion = new SqlConnection("data source = .\\SQLEXPRESS; initial catalog = DB_TPC; integrated security = sspi;");
+            comando = new SqlCommand();
+        }
+        public void setConsulta(string consulta)
+        {
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = consulta;
+        }
+        public void setParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+        public void ejecutarLectura()
+        {
+            comando.Connection = conexion;
+            conexion.Open();
+            lector = comando.ExecuteReader();
+        }
+        public void cerrarConexion()
+        {
+            if (lector != null)
+                lector.Close();
+            conexion.Close();
+        }
+        public SqlDataReader Lector
+        {
+            get { return lector; }
+        }
+        internal void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            conexion.Open();
+            comando.ExecuteNonQuery();
+        }
     }
 }
