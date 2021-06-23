@@ -16,10 +16,12 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Nro Ticket</th>
+                <th scope="col">Estado</th>
                 <th scope="col">Cliente</th>
                 <th scope="col">Tecnico Asignado</th>
                 <th scope="col">Fecha Ingreso</th>
-                <th scope="col">Estado</th>
+                <th scope="col">Producto</th>
+                
                
             </tr>
         </thead>

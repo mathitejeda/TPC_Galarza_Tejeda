@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sistema de Remitos</title>
+    <title>Sistema postventa</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <!-- Bootstrap core CSS -->
@@ -37,26 +37,26 @@
                     <ul class="navbar-nav mr-auto pt-3 pt-lg-0">
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Solicitudes
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tickets
                             </a>
                             <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/">Todas</a>
                                 <a class="dropdown-item" href="Default.aspx?condicion=aprobadas">Aprobadas</a>
                                 <a class="dropdown-item" href="Default.aspx?condicion=pendientes">Pendientes</a>
                                 <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Rechazadas</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Terminadas</a>
                             </div>
                         </li>
-                        <li class="nav-item">
+                        <%--definir si se sgregan mas campos--%>
+                        <%--<li class="nav-item">
                             <a class="nav-link" href="NoPage.aspx">NoPage</a>
-                        </li>
-                        <li class="nav-item">
+                        //</li>
+                        //<li class="nav-item">
                             <a class="nav-link" href="NoPage.aspx?condicion=habilitadas&tipo=cliente">NoPage</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="NoPage.aspx?condicion=habilitadas&tipo=transportista">NoPage</a>
-                        </li>
+                        </li>--%>
+                        
 
-                        <% if (false)
+                       <% if (false)
                             {
                         %>
                         <li class="nav-item">
@@ -65,9 +65,9 @@
                         <%
                             }
                         %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="NoPage.aspx?condicion=habilitados">Artículos</a>
-                        </li>
+                        <%--<li class="nav-item">
+                            <a class="nav-link" href="NoPage.aspx?condicion=habilitados">NoPage</a>
+                        </li>--%>
 
                     </ul>
                     <ul class="navbar-nav pb-3 pb-lg-0">
