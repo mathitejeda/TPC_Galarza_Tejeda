@@ -9,9 +9,9 @@ namespace Controlador
 {
     public class AccesoDatos
     {
-        private SqlConnection conexion;
-        private SqlCommand comando;
-        private SqlDataReader lector;
+        public SqlConnection conexion { get; set; }
+        public SqlCommand comando{ get; set; }
+        public SqlDataReader lector { get; set; }
 
         public AccesoDatos()
         {
