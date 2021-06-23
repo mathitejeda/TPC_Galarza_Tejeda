@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class Incidencias
+    class Ticket
     {
         int id;
-        Producto producto;
-        Cliente cliente;
-        Tecnico tecnico;
+        Productos producto;
+        int idUsuario;
+        int idTecnico;
         string detalle;
         int estado;
         DateTime fechaIngreso;
