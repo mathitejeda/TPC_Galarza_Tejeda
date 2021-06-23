@@ -2,6 +2,10 @@ create database DB_TPC
 
 GO
 
+use DB_TPC
+
+GO
+
 create table areas
 (
     IDArea int PRIMARY KEY identity(1,1),
@@ -21,6 +25,14 @@ create table productos
 
 GO
 
+create table serieProducto
+(
+	NROSerie bigint primary key identity(1000,1),
+	IDProducto bigint foreign key references productos(IDproducto)
+)
+
+GO
+
 create table tipoUsuario
 (
     IDTipo int PRIMARY KEY,
@@ -35,22 +47,14 @@ create table usuarios
     IDTipo int FOREIGN key REFERENCES tipoUsuario(IDTipo) not null,
     nombre varchar(30) not null,
     apellido varchar(30) not null,
-    DNI varchar (10) not null unique
+    DNI varchar (10) not null unique,
+	domicilio varchar(50) null,
+	telefono varchar(50) null,
+	celular varchar(50) null,
+	mail varchar(50) null
 )
 
 GO
-
-create table contacto
-(
-	IDContacto bigint primary key identity(1,1),
-	IDUsuario bigint foreign key references usuarios(IDUsuario),
-	domicilio varchar(50) not null,
-	telefono varchar(50) not null,
-	celular varchar(50) not null,
-	mail varchar(50) not null
-)
-
-go
 
 CREATE TABLE Autenticaciones
 (
