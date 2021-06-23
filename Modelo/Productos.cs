@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class Tecnico
+    class Productos
     {
-        string Especialidad;
+        string nombre;
+        string detalle;
+        int numeroSerie;
+        string condicion;
     }
 }

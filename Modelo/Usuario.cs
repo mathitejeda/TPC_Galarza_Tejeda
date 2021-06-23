@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    public class Persona
+    public class Usuario
     {
         int Id { get; set; }
         string Nombre { get; set; }
         string Apellido { get; set; }
         string DNI { get; set; }
         Contacto Contacto { get; set; }
+        int tipoUsuario { get; set; }
     }
 }
