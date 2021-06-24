@@ -40,11 +40,11 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tickets
                             </a>
                             <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/">Todas</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=aprobadas">Aprobadas</a>
+                                <a class="dropdown-item" href="/">Todos</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=aprobadas">Aprobados</a>
                                 <a class="dropdown-item" href="Default.aspx?condicion=pendientes">Pendientes</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Rechazadas</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Terminadas</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Rechazados</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Terminados</a>
                             </div>
                         </li>
                         <%--definir si se sgregan mas campos--%>

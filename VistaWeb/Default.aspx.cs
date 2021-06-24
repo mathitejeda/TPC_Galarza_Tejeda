@@ -9,7 +9,7 @@ using Controlador;
 
 namespace VistaWeb
 {
-    public partial class _Default : Page
+    public partial class Default : Page
     {
         public List<ListaTicket> listado { get; set; }
         public Usuario usuario { get; set; }
