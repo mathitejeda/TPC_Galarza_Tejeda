@@ -21,6 +21,7 @@
                 <th scope="col">Tecnico Asignado</th>
                 <th scope="col">Fecha Ingreso</th>
                 <th scope="col">Producto</th>
+                <th scope="col"></th>
                 
                
             </tr>

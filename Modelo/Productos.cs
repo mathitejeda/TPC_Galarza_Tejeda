@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class Productos
+    public class Productos
     {
-        string nombre;
-        string detalle;
-        int numeroSerie;
-        string condicion;
+        public string nombre;
+        public string detalle;
+        public int numeroSerie;
+        public string condicion;
+
+        public Productos(string nombre)
+        {
+            this.nombre = nombre;
+        }
     }
 }

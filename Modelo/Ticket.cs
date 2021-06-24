@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class Ticket
+    public class Ticket
     {
-        int id;
-        Productos producto;
-        int idUsuario;
-        int idTecnico;
-        string detalle;
-        int estado;
-        DateTime fechaIngreso;
-        DateTime fechaFinalizacion;
+        public int idTicket;
+        public Productos producto;
+        public Usuario cliente;
+        public Usuario tecnico;
+        public string detalle;
+        public string estado;
+        public DateTime fechaIngreso;
+        public DateTime fechaFinalizacion;
     }
 }

@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ticketNegocio.cs" />
+    <Compile Include="UsuarioNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Modelo\Modelo.csproj">

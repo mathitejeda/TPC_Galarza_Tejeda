@@ -106,3 +106,6 @@ create table usuariosPorArea
 )
 
 GO
+
+--Creada la columna cliente en ticket para poder mostrar los datos de manera mas precisa
+alter table ticket add IDCliente bigint FOREIGN key references usuarios(IDUsuario)
