@@ -8,13 +8,22 @@ namespace Modelo
 {
     public class Ticket
     {
-        public int idTicket;
-        public Productos producto;
-        public Usuario cliente;
-        public Usuario tecnico;
-        public string detalle;
-        public string estado;
-        public DateTime fechaIngreso;
-        public DateTime fechaFinalizacion;
+        public int idTicket { get; set; }
+        public Productos producto { get; set; }
+        public Usuario cliente { get; set; }
+        public Usuario tecnico
+        {
+            get; set;
+        }
+        public string detalle
+        {
+            get; set;
+        }
+        public string estado
+        {
+            get; set;
+        }
+        public DateTime fechaIngreso { get; set; }
+        public DateTime fechaFinalizacion { get; set; }
     }
 }

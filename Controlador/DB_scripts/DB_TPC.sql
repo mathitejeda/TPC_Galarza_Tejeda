@@ -17,7 +17,7 @@ GO
 
 create table productos
 (
-    IDProducto bigint PRIMARY KEY,
+    IDProducto bigint PRIMARY KEY IDENTITY(1,1),
     nombre varchar(15) not null,
     numeroSerie varchar(15) not null,
     descripcion varchar(100) not null
@@ -35,7 +35,7 @@ GO
 
 create table tipoUsuario
 (
-    IDTipo int PRIMARY KEY,
+    IDTipo int PRIMARY KEY IDENTITY(1,1),
     Descripcion varchar(30) not null
 )
 
@@ -65,23 +65,24 @@ CREATE TABLE Autenticaciones
 
 go
 
+create table estadoTicket(
+	IDEstado int primary key IDENTITY(1,1),
+	nombre varchar(50) not null
+)
+
+GO
+
 create table ticket(
-   IDTicket int PRIMARY KEY identity(1,1),
+	IDTicket int PRIMARY KEY identity(1,1),
     IDTecnico bigint FOREIGN KEY REFERENCES Usuarios(IDUsuario)not null,
+	IDCliente bigint FOREIGN key references usuarios(IDUsuario) not null,
 	IDProducto bigint FOREIGN KEY REFERENCES Productos(IDProducto) not null,
-	IDEstado int not null,
+	IDEstado int FOREIGN KEY REFERENCES estadoTicket(IDEstado) not null default(1),
     Problema varchar(300) null,
 	Diagnostico varchar(300) null,
 	Solucion varchar(300) null,
     FechaIngreso date not null,
     FechaEgreso date null
-)
-
-go
-
-create table estadoTicket(
-	IDEstado int primary key references ticket(IDTicket),
-	nombre varchar(50) not null
 )
 
 GO
@@ -94,7 +95,7 @@ create table productosPorCliente(
 	foreign key (IDCliente) references usuarios(IDUsuario)
 )
 
-go
+GO
 
 create table usuariosPorArea
 (
@@ -106,6 +107,3 @@ create table usuariosPorArea
 )
 
 GO
-
---Creada la columna cliente en ticket para poder mostrar los datos de manera mas precisa
-alter table ticket add IDCliente bigint FOREIGN key references usuarios(IDUsuario)

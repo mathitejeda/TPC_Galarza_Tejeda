@@ -27,22 +27,21 @@
             </tr>
         </thead>
         <tbody>
-            <%%>
-            <%foreach (var item in listado)
-                {%>
-            <tr>
-                <th scope="row"><% = item.IdTicket %> </th>
-                <td><% = (item.Estado) %></td>
-                <td><% = (item.Cliente) %></td>
-                <td><% = (item.Tecnico) %></td>
-                <td><% = (item.FechaIngreso) %></td>
-                <td><% = (item.Producto) %></td>
-                                
+			<asp:Repeater runat="server" ID="repeater">
+				<ItemTemplate>
+                    <tr>
+                        <th scope="row"><%#Eval("idTicket") %></th>
+                        <td><%#Eval("estado") %></td>
+                        <td><%#Eval("cliente") %></td>
+                        <td><%#Eval("tecnico") %></td>
+                        <td><%#Eval("fechaIngreso") %></td>
+                        <td><%#Eval("producto") %></td>
                 <td>
-                    <a href="TicketDetalle.aspx?id=<% = item.IdTicket %> " class="btn btn-primary btn-user btn-block">Ver </a>
+                    <a href="TicketDetalle.aspx?id=<%#Eval("idTicket") %> " class="btn btn-primary btn-user btn-block">Ver </a>
                 </td>
-            </tr>
-            <%}%>
+                    </tr>
+				</ItemTemplate>
+			</asp:Repeater>
         </tbody>
     </table>
 
