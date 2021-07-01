@@ -18,23 +18,7 @@ namespace VistaWeb
         {
             usuario = (Usuario)Session[Session.SessionID + "usuario"];
             ticketNegocio negocio = new ticketNegocio();
-            /*
-            Listado = new List<ListaTicket>();
-            Listado.Add(new ListaTicket
-            {
-                IdTicket = 1,
-                IDEstado = 1,
-                IdCliente = 1,
-                IdTecnico = 1,
-                IdProducto = 1,
-                Estado = "Aprobado",
-                Cliente = "Cliente",
-                Tecnico = "Tecnico",
-                FechaIngreso = DateTime.Now,
-                Producto = "Producto"
-            });
-            */
-            //listado = (List<ListaTicket>)Session[Session.SessionID + "listado"];
+
             try
             {
                 Listado = negocio.listar();
@@ -45,6 +29,7 @@ namespace VistaWeb
                 throw ex;
             }
             repeater.DataSource = Listado;
+            repeater.DataBind();
         }
     }
 }
