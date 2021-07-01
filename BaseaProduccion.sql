@@ -1,6 +1,11 @@
-CREATE DATABASE DB_TPC
 GO
-CREATE TABLE TiposUsuario 
+CREATE DATABASE DB_TPC
+
+GO
+USE DB_TPC
+
+GO
+CREATE TABLE TiposUsuario
 (
     IDtipo int PRIMARY KEY identity (1,1) not null,
     nombre varchar(10) not null,
@@ -44,11 +49,12 @@ Nombre varchar(50) not null
 )
 GO
 
-CREATE TABLE TicketsEncabezado(
+CREATE TABLE TicketsEncabezado (
     IDTicket int PRIMARY KEY identity(1,1)not null,
     IDTecnico int FOREIGN KEY REFERENCES Usuarios(IDUsuario)not null,
+	IDCliente int FOREIGN KEY REFERENCES Usuarios(IDUsuario)not null,
 	IDProducto int FOREIGN KEY REFERENCES Productos(IDProducto) not null,
-	IDEstado int not null,
+	IDEstado int FOREIGN KEY REFERENCES EstadosTickets(IDEstado) not null,
     Problema varchar(300) null,
 	Diagnostico varchar(300) null,
 	Solucion varchar(300) null,

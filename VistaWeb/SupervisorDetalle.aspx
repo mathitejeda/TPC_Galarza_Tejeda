@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CrearTicket.aspx.cs" Inherits="VistaWeb.CrearTicket" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SupervisorDetalle.aspx.cs" Inherits="VistaWeb.SupervisorDetalle" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   <!-- Bootstrap core JavaScript -->
+     <!-- Bootstrap core JavaScript -->
     <script src="js/jquery.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -8,17 +8,26 @@
         <asp:Label runat="server" ID="confirmacionEstado"></asp:Label>
         <table class="table table-hover">
                 <tbody>
+                    <tr>
+                    <th scope="row">Cliente</th>
+                    <td colspan="2">
+                        <asp:TextBox cssClass="form-control" ID="TextBoxCliente" runat="server"></asp:TextBox>
+                     
+                    </tr>
                 <tr>
                     <th scope="row">Producto</th>
                     <td colspan="2">
-                        <asp:DropDownList cssClass="form-control" ID="ddlProducto" runat="server" AppendDataBoundItems ="true">
-                            <asp:ListItem Text=""></asp:ListItem>
-                        </asp:DropDownList>
-                    <td colspan="2">
-                        <asp:RequiredFieldValidator runat="server" CssClass="text-danger" ErrorMessage="Tipo de producto" ControlToValidate="ddlProducto"></asp:RequiredFieldValidator></td>
-                </tr>
-                <tr>
+                        <asp:TextBox cssClass="form-control" ID="TextBoxproducto" runat="server"></asp:TextBox>
+                     
+                    </tr>
+                     <tr>
                     <th scope="row">Tipo de Servicio</th>
+                    <td colspan="2">
+                        <asp:TextBox cssClass="form-control" ID="TextBoxTipodeServicio" runat="server"></asp:TextBox>
+                     
+                    </tr>
+                <tr>
+                    <th scope="row">Tecnico </th>
                     <td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlArticulo" runat="server" AppendDataBoundItems ="true">
                             <asp:ListItem Text=""></asp:ListItem>
@@ -29,9 +38,7 @@
                     <td colspan="2">
                         <asp:TextBox runat="server" ID="tbObservaciones" CssClass="form-control" MaxLength="299" TextMode="MultiLine"></asp:TextBox>
                     </td>
-                    <td colspan="2">
-                        <asp:RequiredFieldValidator runat="server" CssClass="text-danger" ErrorMessage="Observaciones " ControlToValidate="tbObservaciones"></asp:RequiredFieldValidator>
-                    </td>
+                    
                 </tr>
                 
             </tbody>
@@ -40,7 +47,7 @@
   <div class="row">
     <div class="col text-center">
         
-     <asp:Button runat="server" cssClass="btn btn-primary btn-user" Text="Crear" ID="Button1" OnClick="btnCrear_Click" /><class = "btn-toolbar"></class> <a href="default.aspx" class="btn btn-primary btn-user">Cancelar </a>
+     <asp:Button runat="server" cssClass="btn btn-primary btn-user" Text="Asignar" ID="ButtonAsignar" OnClick="btnAsignar_Click" /><class = "btn-toolbar"></class> <a href="default.aspx" class="btn btn-primary btn-user">Cancelar </a>
     </div> 
   </div>
 </div>

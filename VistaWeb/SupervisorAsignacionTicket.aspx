@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="VistaWeb.Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SupervisorAsignacionTicket.aspx.cs" Inherits="VistaWeb.SupervisorAsignacionTicket" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!-- Bootstrap core JavaScript -->
@@ -7,10 +7,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-   <% if (true)
-        { %>
-            <a href="CrearTicket.aspx" class="btn btn-primary btn-user">Crear Ticket</a>
-      <%  } %>    
     
     <table class="table">
         <thead class="thead-dark">

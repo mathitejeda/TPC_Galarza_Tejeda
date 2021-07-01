@@ -11,7 +11,7 @@ namespace VistaWeb
 {
 
 
-    public partial class Default
+    public partial class SupervisorAsignacionTicket
     {
     }
 }

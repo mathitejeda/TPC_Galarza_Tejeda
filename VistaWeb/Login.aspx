@@ -57,7 +57,7 @@
                                         <asp:Label ID="confirmacionEstado" runat="server"></asp:Label>
                                         <%--custom-control-label--%>
                                         <div class="text-center">
-                                            <a class="small" href="ForgotPassword.aspx">Olvidaste tu Password?</a>
+                                            <a class="small" href="RecuperoPassword.aspx">Olvidaste tu Password?</a>
                                         </div>
                                     </div>
                                 </div>
