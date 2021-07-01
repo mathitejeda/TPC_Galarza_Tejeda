@@ -7,7 +7,7 @@ using Modelo;
 
 namespace Controlador
 {
-    class ticketNegocio
+    public class ticketNegocio
     {
         public List<Ticket> listar()
         {
@@ -16,23 +16,23 @@ namespace Controlador
             try
             {
                 string consulta =
-                    "select T.IDTicket, ET.nombre,CLI.nombre, TEC.nombre, T.FechaIngreso,p.nombre" +
+                    "select T.IDTicket, ET.nombre,CLI.nombre, TEC.nombre, T.FechaIngreso,p.nombre " +
                     "from ticket as T " +
                     "inner join estadoTicket as ET on T.IDEstado=ET.IDEstado " +
-                    "inner join usuarios as TEC on T.IDTecnico=U1.IDUsuario " +
-                    "inner join usuarios as U2 on T.IDCliente=U2.IDUsuario " +
+                    "inner join usuarios as TEC on T.IDTecnico=TEC.IDUsuario " +
+                    "inner join usuarios as CLI on T.IDCliente=CLI.IDUsuario " +
                     "inner join productos as P on T.IDProducto=P.IDProducto";
                 datos.setConsulta(consulta);
                 datos.ejecutarLectura();
-                while (datos.lector.Read())
+                while (datos.Lector.Read())
                 {
                     Ticket aux = new Ticket();
-                    aux.idTicket = datos.lector.GetInt32(0);
-                    aux.estado = datos.lector.GetString(1);
-                    aux.cliente = new Usuario(datos.lector.GetString(2));
-                    aux.tecnico = new Usuario(datos.lector.GetString(3));
-                    aux.fechaIngreso = datos.lector.GetDateTime(4);
-                    aux.producto = new Productos(datos.lector.GetString(5));
+                    aux.idTicket = datos.Lector.GetInt32(0);
+                    aux.estado = datos.Lector.GetString(1);
+                    aux.cliente = new Usuario(datos.Lector.GetString(2));
+                    aux.tecnico = new Usuario(datos.Lector.GetString(3));
+                    aux.fechaIngreso = datos.Lector.GetDateTime(4);
+                    aux.producto = new Productos(datos.Lector.GetString(5));
                     lista.Add(aux);
                 }
                 return lista;
@@ -42,7 +42,6 @@ namespace Controlador
                 throw ex;
             }
             
-            return lista;
         }
     }
 }

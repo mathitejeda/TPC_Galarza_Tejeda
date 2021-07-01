@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="VistaWeb._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="VistaWeb.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!-- Bootstrap core JavaScript -->
@@ -27,8 +27,8 @@
             </tr>
         </thead>
         <tbody>
-            <%%>
-            <%foreach (var item in listado)
+            <%/*%>
+            <%foreach (var item in Listado)
                 {%>
             <tr>
                 <th scope="row"><% = item.IdTicket %> </th>
@@ -42,7 +42,19 @@
                     <a href="TicketDetalle.aspx?id=<% = item.IdTicket %> " class="btn btn-primary btn-user btn-block">Ver </a>
                 </td>
             </tr>
-            <%}%>
+            <%}*/%>
+			<asp:Repeater runat="server" ID="repeater">
+				<ItemTemplate>
+                    <tr>
+                        <th scope="row"><%#Eval("IdTicket") %></th>
+                        <td><%#Eval("estado") %></td>
+                        <td><%#Eval("cliente.Nombre") %></td>
+                        <td><%#Eval("tecnico.Nombre") %></td>
+                        <td><%#Eval("fechaIngreso") %></td>
+                        <td><%#Eval("producto.Nombre") %></td>
+                    </tr>
+				</ItemTemplate>
+			</asp:Repeater>
         </tbody>
     </table>
 
