@@ -9,5 +9,11 @@ namespace Controlador
 {
     class UsuarioNegocio
     {
+        public List<Usuario> listar()
+        {
+            List<Usuario> lista = new List<Usuario>();
+                     
+            return void;
+        }
     }
 }
