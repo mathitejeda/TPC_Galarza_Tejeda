@@ -28,3 +28,8 @@ insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','11
 insert into ticket(IDTecnico,IDCliente,IDProducto,FechaIngreso) values(1,2,1,GETDATE())
 
 select * from ticket
+
+select U.IDUsuario, U.nombre, U.apellido, U.DNI, u.celular, u.domicilio
+from usuarios as U
+inner join tipoUsuario as TU on U.IDTipo=TU.IDTipo
+where TU.Descripcion like 'tecnico'

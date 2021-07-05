@@ -107,3 +107,5 @@ create table usuariosPorArea
 )
 
 GO
+
+alter TABLE usuarios add codigoPostal smallint null

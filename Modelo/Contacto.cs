@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class Contacto
+    public class Contacto
     {
-        string direccion { get; set; }
-        string telefono { get; set; }
-        string celular { get; set; }
-        string codigoPostal { get; set; }
+        public string direccion { get; set; }
+        public string telefono { get; set; }
+        public string celular { get; set; }
+        public string codigoPostal { get; set; }
     }
 }
