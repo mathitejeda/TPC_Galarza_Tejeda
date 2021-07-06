@@ -8,15 +8,16 @@ namespace Modelo
 {
     public class Productos
     {
+        public long id;
         public string nombre;
         public string detalle;
-        public int numeroSerie;
-        public string condicion;
+        public long numeroSerie;
 
         public Productos(string nombre)
         {
             this.nombre = nombre;
         }
+        public Productos() { }
         public override string ToString()
         {
             return nombre;

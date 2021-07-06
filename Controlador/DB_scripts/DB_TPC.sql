@@ -48,10 +48,10 @@ create table usuarios
     nombre varchar(30) not null,
     apellido varchar(30) not null,
     DNI varchar (10) not null unique,
-	domicilio varchar(50) null,
-	telefono varchar(50) null,
-	celular varchar(50) null,
-	mail varchar(50) null
+	domicilio varchar(50) null default('N/A'),
+	telefono varchar(50) null default('N/A'),
+	celular varchar(50) null default('N/A'),
+	mail varchar(50) null default('N/A')
 )
 
 GO
@@ -108,4 +108,5 @@ create table usuariosPorArea
 
 GO
 
-alter TABLE usuarios add codigoPostal smallint null
+alter TABLE usuarios add codigoPostal smallint null DEFAULT(0)
+

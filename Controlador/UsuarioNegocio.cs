@@ -9,14 +9,14 @@ namespace Controlador
 {
     public class UsuarioNegocio
     {
-        public List<Usuario> listarTecnicos()
+        public List<Usuario> ListarTecnicos()
         {
             List<Usuario> lista = new List<Usuario>();
             AccesoDatos datos= new AccesoDatos();
             try
             {
                 string consulta =
-                    "select U.IDUsuario, U.nombre, U.apellido, U.DNI, U.celular, U.domicilio " +
+                    "select U.IDUsuario, U.nombre, U.apellido, U.DNI, U.domicilio, U.Telefono, U.celular, U.codigoPostal " +
                     "from usuarios as U " +
                     "inner join tipoUsuario as TU on U.IDTipo = TU.IDTipo " +
                     "where TU.Descripcion like 'tecnico'";
@@ -25,20 +25,20 @@ namespace Controlador
                 while (datos.Lector.Read())
                 {
                     Usuario aux = new Usuario();
-                    aux.Id = datos.Lector.GetInt32(0);
+                    aux.Id = datos.Lector.GetInt64(0);
                     aux.Nombre = datos.Lector.GetString(1);
                     aux.Apellido = datos.Lector.GetString(2);
                     aux.DNI = datos.Lector.GetString(3);
-                    aux.infoContacto.celular = datos.Lector.GetString(4);
-                    aux.infoContacto.direccion = datos.Lector.GetString(5);
+                    aux.infoContacto = new Contacto(datos.Lector.GetString(4), datos.Lector.GetString(5), datos.Lector.GetString(6), datos.Lector.GetInt16(7));
                     lista.Add(aux);
                 }
+                return lista;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return lista;
+            
         }
         public List<Usuario> listarClientes()
         {
@@ -60,8 +60,8 @@ namespace Controlador
                     aux.Nombre = datos.Lector.GetString(1);
                     aux.Apellido = datos.Lector.GetString(2);
                     aux.DNI = datos.Lector.GetString(3);
-                    aux.infoContacto.celular = datos.Lector.GetString(4);
-                    aux.infoContacto.direccion = datos.Lector.GetString(5);
+                    aux.infoContacto.Celular = datos.Lector.GetString(4);
+                    aux.infoContacto.Direccion = datos.Lector.GetString(5);
                     lista.Add(aux);
                 }
             }

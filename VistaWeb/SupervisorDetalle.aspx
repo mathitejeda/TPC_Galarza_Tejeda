@@ -28,10 +28,11 @@
                     </tr>
                 <tr>
                     <th scope="row">Tecnico </th>
-                    <td colspan="2">
+						<td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlTecnicos" runat="server" AppendDataBoundItems ="true">
-                            <asp:ListItem Text=""><%#Eval("Nombre) %>  </asp:ListItem>
+                            <asp:ListItem Text="">  </asp:ListItem>
                         </asp:DropDownList>
+                        </td>
                     <tr>
                     <th scope="row">Observaciones</th>
                     <td colspan="2">

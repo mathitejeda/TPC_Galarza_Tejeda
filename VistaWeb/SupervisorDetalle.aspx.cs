@@ -18,14 +18,15 @@ namespace VistaWeb
             UsuarioNegocio Unegocio = new UsuarioNegocio();
             try
             {
-                tecnicos = Unegocio.listarTecnicos();
+                tecnicos = Unegocio.ListarTecnicos();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
             ddlTecnicos.DataSource = tecnicos;
-            ddlTecnicos.DataTextField = "Nombre";
+            ddlTecnicos.DataTextField = "Apellido";
+            ddlTecnicos.DataValueField = "Id";
             ddlTecnicos.DataBind();
         }
 

@@ -1,7 +1,6 @@
 use DB_TPC
 
 GO
-
 insert into estadoTicket (nombre) values('Ingresado')
 insert into estadoTicket (nombre) values('En proceso')
 insert into estadoTicket (nombre) values('Aceptado')
@@ -9,6 +8,7 @@ insert into estadoTicket (nombre) values('Rechazado')
 insert into estadoTicket (nombre) values('Finalizado')
 
 GO
+
 
 insert into areas(nombre,descripcion) values('Reparacion','Nada mas que agregar')
 insert into tipoUsuario(Descripcion) values('admin')
@@ -27,9 +27,17 @@ insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','11
 
 insert into ticket(IDTecnico,IDCliente,IDProducto,FechaIngreso) values(1,2,1,GETDATE())
 
-select * from ticket
+GO
+
+select * from usuarios
 
 select U.IDUsuario, U.nombre, U.apellido, U.DNI, u.celular, u.domicilio
 from usuarios as U
 inner join tipoUsuario as TU on U.IDTipo=TU.IDTipo
 where TU.Descripcion like 'tecnico'
+select * from productos
+insert into serieProducto(IDProducto) values(1)
+
+select p.nombre, p.descripcion, sp.NROSerie
+from productos as P
+    inner join serieProducto as SP on SP.IDProducto=P.IDProducto

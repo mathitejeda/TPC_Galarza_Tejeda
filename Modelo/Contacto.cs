@@ -8,9 +8,16 @@ namespace Modelo
 {
     public class Contacto
     {
-        public string direccion { get; set; }
-        public string telefono { get; set; }
-        public string celular { get; set; }
-        public string codigoPostal { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
+        public string Celular { get; set; }
+        public short CodigoPostal { get; set; }
+        public Contacto(string direccion, string telefono, string celular,short codigoPostal)
+        {
+            Direccion = direccion;
+            Telefono = telefono;
+            Celular = celular;
+            CodigoPostal = codigoPostal;
+        }
     }
 }
