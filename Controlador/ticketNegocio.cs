@@ -43,5 +43,38 @@ namespace Controlador
             }
             
         }
+
+        public Ticket detalle(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Ticket aux = new Ticket();
+            try
+            {
+                string consulta =
+                    "select T.IDTicket, ET.nombre,CLI.nombre, TEC.nombre, T.FechaIngreso,p.nombre " +
+                    "from ticket as T " +
+                    "inner join estadoTicket as ET on T.IDEstado=ET.IDEstado " +
+                    "inner join usuarios as TEC on T.IDTecnico=TEC.IDUsuario " +
+                    "inner join usuarios as CLI on T.IDCliente=CLI.IDUsuario " +
+                    "inner join productos as P on T.IDProducto=P.IDProducto " +
+                    "where T.IDTicket="+id;
+                datos.setConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    aux.idTicket = datos.Lector.GetInt32(0);
+                    aux.estado = datos.Lector.GetString(1);
+                    aux.cliente = new Usuario(datos.Lector.GetString(2));
+                    aux.tecnico = new Usuario(datos.Lector.GetString(3));
+                    aux.fechaIngreso = datos.Lector.GetDateTime(4);
+                    aux.producto = new Productos(datos.Lector.GetString(5));
+                }
+                return aux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

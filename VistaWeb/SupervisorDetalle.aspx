@@ -30,13 +30,13 @@
                     <th scope="row">Tecnico </th>
 						<td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlTecnicos" runat="server" AppendDataBoundItems ="true">
-                            <asp:ListItem Text="">  </asp:ListItem>
+                            <asp:ListItem Text="Seleccionar...">  </asp:ListItem>
                         </asp:DropDownList>
                         </td>
                     <tr>
                     <th scope="row">Observaciones</th>
                     <td colspan="2">
-                        <asp:TextBox runat="server" ID="tbObservaciones" CssClass="form-control" MaxLength="299" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="TextBoxObservaciones" CssClass="form-control" MaxLength="299" TextMode="MultiLine"></asp:TextBox>
                     </td>
                     
                 </tr>

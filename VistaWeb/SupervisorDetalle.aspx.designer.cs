@@ -60,13 +60,13 @@ namespace VistaWeb
         protected global::System.Web.UI.WebControls.DropDownList ddlTecnicos;
 
         /// <summary>
-        /// Control tbObservaciones.
+        /// Control TextBoxObservaciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbObservaciones;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxObservaciones;
 
         /// <summary>
         /// Control ButtonAsignar.

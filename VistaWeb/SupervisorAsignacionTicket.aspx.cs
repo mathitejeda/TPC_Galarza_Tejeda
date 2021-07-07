@@ -11,27 +11,24 @@ namespace VistaWeb
 {
     public partial class SupervisorAsignacionTicket : System.Web.UI.Page
     {
-        public List<ListaTicket> listado { get; set; }
+        public List<Ticket> Listado { get; set; }
         public Usuario usuario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
             usuario = (Usuario)Session[Session.SessionID + "usuario"];
+            ticketNegocio negocio = new ticketNegocio();
 
-            listado = new List<ListaTicket>();
-            listado.Add(new ListaTicket
+            try
             {
-                IdTicket = 1,
-                IDEstado = 1,
-                IdCliente = 1,
-                IdTecnico = 1,
-                IdProducto = 1,
-                Estado = "Aprobado",
-                Cliente = "Cliente",
-                Tecnico = "Tecnico",
-                FechaIngreso = DateTime.Now,
-                Producto = "Producto"
-            });
+                Listado = negocio.listar();
+            }
+            catch (Exception ex)
+            {
+                //TODO: Agregar una pantalla de error para poder redireccionar
+                throw ex;
+            }
+            repeaterSupervisor.DataSource = Listado;
+            repeaterSupervisor.DataBind();
         }
     }
 }
