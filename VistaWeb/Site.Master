@@ -41,10 +41,10 @@
                             </a>
                             <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/">Todos</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=aprobadas">Aprobados</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=pendientes">Pendientes</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Rechazados</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Terminados</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Abierto">Abierto</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Procesando">Procesando</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Cerrado">Cerrado</a>
+                               
                             </div>
                         </li>
                         <%--definir si se sgregan mas campos--%>
