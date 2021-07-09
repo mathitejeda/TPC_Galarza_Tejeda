@@ -44,7 +44,7 @@
                                 <a class="dropdown-item" href="Default.aspx?condicion=aprobadas">Aprobados</a>
                                 <a class="dropdown-item" href="Default.aspx?condicion=pendientes">Pendientes</a>
                                 <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Rechazados</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Terminados</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=terminados">Terminados</a>
                                
                             </div>
                         </li>
@@ -108,7 +108,7 @@
         </footer>
 
         <!-- Bootstrap core JavaScript -->
-        <%--<script src="js/jquery.min.js"></script>--%>
+       <%--<script src="js/jquery.min.js"></script>--%>
         <script src="js/bootstrap.bundle.min.js"></script>
     </form>
 </body>
