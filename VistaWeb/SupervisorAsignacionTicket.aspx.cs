@@ -15,7 +15,11 @@ namespace VistaWeb
         public Usuario usuario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            usuario = (Usuario)Session[Session.SessionID + "usuario"];
+            //si no existe usuario, me voy a la pagina de login
+            usuario = new Usuario();
+            usuario = (Usuario)Session[Session.SessionID + "usuarioLogueado"];
+            if ((Session[Session.SessionID + "usuarioLogueado"]) == null) { Response.Redirect("Login.aspx"); }
+                        
             ticketNegocio negocio = new ticketNegocio();
 
             try

@@ -11,7 +11,7 @@ namespace Controlador
     {
         public List<servicios> listar()
         {
-            List<servicios> lista = new List<servicios>;
+            List<servicios> lista = new List<servicios>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
