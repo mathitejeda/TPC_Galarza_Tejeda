@@ -38,6 +38,5 @@ where TU.Descripcion like 'tecnico'
 select * from productos
 insert into serieProducto(IDProducto) values(1)
 
-select p.nombre, p.descripcion, sp.NROSerie
-from productos as P
-    inner join serieProducto as SP on SP.IDProducto=P.IDProducto
+insert into servicios(nombre) values('service')
+insert into servicios(nombre) values('reparacion')
