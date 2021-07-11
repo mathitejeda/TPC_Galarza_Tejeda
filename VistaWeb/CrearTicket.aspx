@@ -30,7 +30,7 @@
                         <asp:TextBox runat="server" ID="tbProblema" CssClass="form-control" MaxLength="299" TextMode="MultiLine"></asp:TextBox>
                     </td>
                     <td colspan="2">
-                        <asp:RequiredFieldValidator runat="server" CssClass="text-danger" ErrorMessage="Observaciones " ControlToValidate="tbObservaciones"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator runat="server" CssClass="text-danger" ErrorMessage="Observaciones " ControlToValidate="tbProblema"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 

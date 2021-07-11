@@ -77,23 +77,22 @@ namespace Controlador
             }
         }
 
-        public Ticket crearTicket(Ticket ticket){
+        public void crearTicket(Ticket ticket){
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "insert into Ticket(IDCliente, IDProducto,IDServicio, problema) " +
-                    "values(@idcliente,@idproducto,@idservicio,@problema)";
+                datos.setConsulta("insert into Ticket(IDCliente, IDProducto,IDServicio, problema) values(@idcliente,@idproducto,@idservicio,@problema)");
                 datos.setParametro("@idcliente",ticket.cliente.Id);
                 datos.setParametro("@idproducto",ticket.producto.id);
                 datos.setParametro("@idservicio",ticket.servicios.IDTipo);
                 datos.setParametro("@problema",ticket.problema);
+
+                datos.ejecutarAccion();
             }
             catch (System.Exception)
             {
-                
                 throw;
             }
-            return ticket;
         }
     }
 }

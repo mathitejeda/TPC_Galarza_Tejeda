@@ -13,10 +13,15 @@ namespace VistaWeb
     {
         List<Servicios> servicios;
         List<Productos> productos;
+        Ticket nuevoTicket;
+
+        Usuario usuarioLogeado;
         protected void Page_Load(object sender, EventArgs e)
         {
             servicioNegocio Snegocio = new servicioNegocio();
             ProductoNegocio Pnegocio = new ProductoNegocio();
+            usuarioLogeado = new Usuario();
+            usuarioLogeado = (Usuario)Session[Session.SessionID + "usuarioLogueado"];
             try
             {
                 servicios = Snegocio.listar();
@@ -42,7 +47,20 @@ namespace VistaWeb
 
         protected void btnCrear_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                ticketNegocio Tnegocio = new ticketNegocio();
+                nuevoTicket = new Ticket();
+                nuevoTicket.cliente.Id = usuarioLogeado.Id;
+                nuevoTicket.producto.id = long.Parse(ddlProducto.SelectedValue);
+                nuevoTicket.servicios.IDTipo = int.Parse(ddlServicio.SelectedValue);
+                nuevoTicket.problema = tbProblema.Text;
+                Tnegocio.crearTicket(nuevoTicket);
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

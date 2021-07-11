@@ -1,3 +1,4 @@
+use DB_TPC
 select * from usuarios
 select * from tipoUsuario
 select * from Autenticaciones
