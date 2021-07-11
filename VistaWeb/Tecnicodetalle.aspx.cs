@@ -12,14 +12,14 @@ namespace VistaWeb
     public partial class Tecnicodetalle : System.Web.UI.Page
     {
         public int idseleccionado;
-        protected Ticket ticketSeleccionado;
+        public Ticket TicketSeleccionado { get; set; }
         public List<EstadoTicket> estados;
+        public ticketNegocio Tnegocio = new ticketNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ticketNegocio Tnegocio = new ticketNegocio();
                 //idseleccionado = Convert.ToInt32(Request.QueryString["id"]);
                 idseleccionado = 1;
-            Ticket ticketSeleccionado = Tnegocio.detalle(idseleccionado);
+            TicketSeleccionado = Tnegocio.detalle(idseleccionado);
             EstadoNegocio Enegocio = new EstadoNegocio();
             try
             {
@@ -30,8 +30,9 @@ namespace VistaWeb
 
                 throw ex;
             }
-            tbCliente.Text = ticketSeleccionado.cliente.Nombre;
-            tbProducto.Text = ticketSeleccionado.producto.nombre;
+            tbCliente.Text = TicketSeleccionado.cliente.Nombre;
+            tbProducto.Text = TicketSeleccionado.producto.nombre;
+            tbObservaciones.Text = TicketSeleccionado.problema;
             ddlEstado.DataSource = estados;
             ddlEstado.DataTextField = "nombre";
             ddlEstado.DataValueField = "idestado";
@@ -39,7 +40,17 @@ namespace VistaWeb
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+            TicketSeleccionado.detalle = tbDiagnostico.Text;
+            TicketSeleccionado.solucion = tbSolucion.Text;
+            TicketSeleccionado.Estado.IDEstado = int.Parse(ddlEstado.SelectedValue);
+            Tnegocio.actualizarTicketTecnico(TicketSeleccionado);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

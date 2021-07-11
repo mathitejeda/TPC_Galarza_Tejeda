@@ -20,9 +20,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <th scope="row">Observaciones</th>
+                    <th scope="row">Problema</th>
                     <td colspan="2">
-                        <asp:TextBox runat="server" ID="tbObservaciones" CssClass="form-control" MaxLength="299" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="tbObservaciones" CssClass="form-control" MaxLength="299" TextMode="MultiLine" ReadOnly="true"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

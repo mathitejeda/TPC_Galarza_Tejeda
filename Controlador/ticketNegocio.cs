@@ -19,7 +19,7 @@ namespace Controlador
                     "select T.IDTicket, ET.nombre,CLI.nombre, TEC.nombre, T.FechaIngreso,p.nombre " +
                     "from ticket as T " +
                     "inner join estadoTicket as ET on T.IDEstado=ET.nombre " +
-                    "inner join usuarios as TEC on T.IDTecnico=TEC.IDUsuario " +
+                    "left join usuarios as TEC on T.IDTecnico=TEC.IDUsuario " +
                     "inner join usuarios as CLI on T.IDCliente=CLI.IDUsuario " +
                     "inner join productos as P on T.IDProducto=P.IDProducto";
                 datos.setConsulta(consulta);
@@ -30,7 +30,7 @@ namespace Controlador
                     aux.idTicket = datos.Lector.GetInt32(0);
                     aux.Estado = new EstadoTicket(datos.Lector.GetString(1));
                     aux.cliente = new Usuario(datos.Lector.GetString(2));
-                    aux.tecnico = new Usuario(datos.Lector.GetString(3));
+                    aux.tecnico = string.IsNullOrEmpty(datos.Lector.GetString(3)) ? aux.tecnico = new Usuario("N/A") : new Usuario(datos.Lector.GetString(3));
                     aux.fechaIngreso = datos.Lector.GetDateTime(4);
                     aux.producto = new Productos(datos.Lector.GetString(5));
                     lista.Add(aux);
@@ -43,7 +43,6 @@ namespace Controlador
             }
             
         }
-
         public Ticket detalle(int id)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -54,7 +53,7 @@ namespace Controlador
                     "select T.IDTicket, ET.nombre,CLI.nombre, TEC.nombre, T.FechaIngreso,p.nombre " +
                     "from ticket as T " +
                     "inner join estadoTicket as ET on T.IDEstado=ET.IDEstado " +
-                    "inner join usuarios as TEC on T.IDTecnico=TEC.IDUsuario " +
+                    "left join usuarios as TEC on T.IDTecnico=TEC.IDUsuario " +
                     "inner join usuarios as CLI on T.IDCliente=CLI.IDUsuario " +
                     "inner join productos as P on T.IDProducto=P.IDProducto " +
                     "where T.IDTicket="+id;
@@ -65,7 +64,7 @@ namespace Controlador
                     aux.idTicket = datos.Lector.GetInt32(0);
                     aux.Estado = new EstadoTicket(datos.Lector.GetString(1));
                     aux.cliente = new Usuario(datos.Lector.GetString(2));
-                    aux.tecnico = new Usuario(datos.Lector.GetString(3));
+                    aux.tecnico = string.IsNullOrEmpty(datos.Lector.GetString(3)) ? aux.tecnico = new Usuario("N/A") : new Usuario(datos.Lector.GetString(3));
                     aux.fechaIngreso = datos.Lector.GetDateTime(4);
                     aux.producto = new Productos(datos.Lector.GetString(5));
                 }
@@ -92,6 +91,24 @@ namespace Controlador
             catch (System.Exception)
             {
                 throw;
+            }
+        }
+
+        public void actualizarTicketTecnico(Ticket ticket)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta("update ticket set Diagnostico=@diagnostico, solucion=@Solucion,IDEstado=@estado");
+                datos.setParametro("@diagnostico", ticket.detalle);
+                datos.setParametro("@Solucion", ticket.solucion);
+                datos.setParametro("@Estado", ticket.Estado.IDEstado);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }
