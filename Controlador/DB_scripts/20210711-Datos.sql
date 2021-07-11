@@ -4,8 +4,8 @@ USE DB_TPC
 
 --insertar Area
 GO
-insert into areas (nombre, descripcion) values ('Reparacion','Nada mas que agregar')
-insert into areas (nombre, descripcion) values ('Service','Mantenimiento')
+insert into servicios(nombre) values('service')
+insert into servicios(nombre) values('reparacion')
 
 --insertar tipo usuarios
 GO
@@ -105,12 +105,12 @@ Insert into serieproducto(idproducto, idusuario) values (14 ,12)
 
 --Insertar ticket
 GO
-insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, idarea) values (NULL,12,1,1,'rotura cigüeñal',NULL,NULL,'2021-07-02',NULL,1000, 1)
-insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, idarea) values (NULL,5,3,1,'mantenimiento 1',NULL,NULL,'2021-07-03',NULL,1005,2)
-insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, idarea) values (NULL,4,2,1,'rotura',NULL,NULL,'2021-07-05',NULL,1004,1)
-insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, idarea) values (NULL,7,5,5,'mantenimiento 1',NULL,NULL,'2021-06-01','2021-06-30',1007,2)
-insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, idarea) values (NULL,9,7,1,'rotura',NULL,NULL,'2021-07-01',NULL,1009,1)
-insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, idarea) values (NULL,6,8,5,'mantenimiento 1',NULL,NULL,'2021-05-01','2021-06-01',1010,2)
+insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, IDservicio) values (NULL,12,1,1,'rotura cigï¿½eï¿½al',NULL,NULL,'2021-07-02',NULL,1000, 1)
+insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, IDservicio) values (NULL,5,3,1,'mantenimiento 1',NULL,NULL,'2021-07-03',NULL,1005,2)
+insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, IDservicio) values (NULL,4,2,1,'rotura',NULL,NULL,'2021-07-05',NULL,1004,1)
+insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, IDservicio) values (NULL,7,5,5,'mantenimiento 1',NULL,NULL,'2021-06-01','2021-06-30',1007,2)
+insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, IDservicio) values (NULL,9,7,1,'rotura',NULL,NULL,'2021-07-01',NULL,1009,1)
+insert into ticket (idtecnico, Idcliente, idproducto, idestado, Problema, Diagnostico, Solucion, Fechaingreso,FechaEgreso, nroserie, IDservicio) values (NULL,6,8,5,'mantenimiento 1',NULL,NULL,'2021-05-01','2021-06-01',1010,2)
 
 --Insertar Autenticaciones
 GO

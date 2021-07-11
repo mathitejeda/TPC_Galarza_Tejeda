@@ -1,4 +1,4 @@
-create database DB_TPC
+drop database DB_TPC
 
 GO
 
