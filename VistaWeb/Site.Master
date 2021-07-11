@@ -77,15 +77,6 @@
                             <%--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario
                             </a>--%>
                             <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
-                                <%
-                                    if (true)
-                                    {
-                                %>
-                                <a class="dropdown-item" href="NoPage.aspx?condicion=habilitados">NoPage Usuarios</a>
-                                <a class="dropdown-item" href="NoPage.aspx">NoPage</a>
-                                <%
-                                    }
-                                %>
                                 <a class="dropdown-item" href="LogOut.aspx">Log Out</a>
                             </div>
                         </li>

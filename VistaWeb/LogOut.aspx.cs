@@ -7,11 +7,12 @@ using System.Web.UI.WebControls;
 
 namespace VistaWeb
 {
-    public partial class RecuperoPassword : System.Web.UI.Page
+    public partial class LogOut : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Session[Session.SessionID + "usuarioLogueado"] = null;
+            Response.Redirect("Login.aspx");
         }
     }
 }

@@ -11,14 +11,30 @@ insert into Autenticaciones (IDUsuario, Contrasenia) values (1,'tecnico')
 insert into Autenticaciones (IDUsuario, Contrasenia) values (2,'cliente')
 insert into Autenticaciones (IDUsuario, Contrasenia) values (3,'supervisor')
 
-CREATE PROCEDURE PR_Autenticacion (
-@MAIL VARCHAR(50),
-@CONTRASENIA VARCHAR(100)
-)
-AS
-BEGIN
-SELECT U.IDTipo FROM Autenticaciones AS A
-INNER JOIN usuarios AS U ON A.IDUsuario=U.IDUsuario
-WHERE U.mail = @MAIL AND A.Contrasenia= @CONTRASENIA
-END
+select * from productos
 
+SELECT U.IDUsuario, U.IDTipo, U.nombre, U.apellido FROM Autenticaciones AS A INNER JOIN usuarios AS U ON A.IDUsuario = U.IDUsuario WHERE U.mail = 'cliente@gmail.com' AND A.Contrasenia = 'cliente'
+
+EXEC PR_Autenticacion 'cliente@gmail.com', 'cli'
+
+SELECT * FROM USUARIOS WHERE IDUsuario = 1
+
+Alter table usuario
+	ALTER COLUMN mail varchar(50) not null unique,
+	ADD Estado bit default (1)
+
+
+--//Insertar productos//
+
+
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
+--Insert into productos(nombre,numeroSerie,descripcion) values('hearth attack','111111','La mano de killer queen')
