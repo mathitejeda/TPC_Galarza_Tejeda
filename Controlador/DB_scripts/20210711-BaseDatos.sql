@@ -38,8 +38,9 @@ create table Usuarios
 	domicilio varchar(50) null default('N/A'),
 	telefono varchar(50) null default('N/A'),
 	celular varchar(50) null default('N/A'),
-	mail varchar(50) not null,
-	codigoPostal smallint null DEFAULT(0)
+	mail varchar(50) not null UNIQUE,
+	codigoPostal smallint null DEFAULT(0),
+	estado bit default(1)
 )
 
 GO

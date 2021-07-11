@@ -29,7 +29,7 @@ insert into ticket(IDTecnico,IDCliente,IDProducto,FechaIngreso) values(1,2,1,GET
 
 GO
 
-select * from usuarios
+select * from estadoTicket
 
 select U.IDUsuario, U.nombre, U.apellido, U.DNI, u.celular, u.domicilio
 from usuarios as U

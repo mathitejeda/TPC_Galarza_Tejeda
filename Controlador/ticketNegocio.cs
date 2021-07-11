@@ -18,7 +18,7 @@ namespace Controlador
                 string consulta =
                     "select T.IDTicket, ET.nombre,CLI.nombre, TEC.nombre, T.FechaIngreso,p.nombre " +
                     "from ticket as T " +
-                    "inner join estadoTicket as ET on T.IDEstado=ET.IDEstado " +
+                    "inner join estadoTicket as ET on T.IDEstado=ET.nombre " +
                     "inner join usuarios as TEC on T.IDTecnico=TEC.IDUsuario " +
                     "inner join usuarios as CLI on T.IDCliente=CLI.IDUsuario " +
                     "inner join productos as P on T.IDProducto=P.IDProducto";
@@ -28,7 +28,7 @@ namespace Controlador
                 {
                     Ticket aux = new Ticket();
                     aux.idTicket = datos.Lector.GetInt32(0);
-                    aux.estado = datos.Lector.GetString(1);
+                    aux.Estado = new EstadoTicket(datos.Lector.GetString(1));
                     aux.cliente = new Usuario(datos.Lector.GetString(2));
                     aux.tecnico = new Usuario(datos.Lector.GetString(3));
                     aux.fechaIngreso = datos.Lector.GetDateTime(4);
@@ -63,7 +63,7 @@ namespace Controlador
                 while (datos.Lector.Read())
                 {
                     aux.idTicket = datos.Lector.GetInt32(0);
-                    aux.estado = datos.Lector.GetString(1);
+                    aux.Estado = new EstadoTicket(datos.Lector.GetString(1));
                     aux.cliente = new Usuario(datos.Lector.GetString(2));
                     aux.tecnico = new Usuario(datos.Lector.GetString(3));
                     aux.fechaIngreso = datos.Lector.GetDateTime(4);

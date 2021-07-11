@@ -20,7 +20,7 @@ namespace Modelo
             get; set;
         }
         public string problema{get;set;}
-        public string estado
+        public EstadoTicket Estado
         {
             get; set;
         }

@@ -10,13 +10,13 @@
                 <tr>
                     <th scope="row">Cliente</th>
                     <td colspan="2">
-                        <asp:TextBox cssClass="form-control" ID="tbCliente" runat="server"></asp:TextBox>
+                        <asp:TextBox cssClass="form-control" ID="tbCliente" runat="server" ReadOnly="True"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">Producto</th>
                     <td colspan="2">
-                        <asp:TextBox cssClass="form-control" ID="tbProducto" runat="server"></asp:TextBox>
+                        <asp:TextBox cssClass="form-control" ID="tbProducto" runat="server" ReadOnly="true"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -41,7 +41,7 @@
                     <th scope="row">Estado</th>
                     <td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlEstado" runat="server" AppendDataBoundItems ="true">
-                        <asp:ListItem Text=""></asp:ListItem>
+                        <asp:ListItem Text="Seleccionar..."></asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>
