@@ -74,7 +74,7 @@ GO
 
 create table ticket(
 	IDTicket int PRIMARY KEY identity(1,1),
-    IDTecnico bigint FOREIGN KEY REFERENCES Usuarios(IDUsuario)not null,
+    IDTecnico bigint FOREIGN KEY REFERENCES Usuarios(IDUsuario)not null, --ahora null
 	IDCliente bigint FOREIGN key references usuarios(IDUsuario) not null,
 	IDProducto bigint FOREIGN KEY REFERENCES Productos(IDProducto) not null,
 	IDEstado int FOREIGN KEY REFERENCES estadoTicket(IDEstado) not null default(1),
