@@ -1,4 +1,4 @@
---Ejecutar lo siguiente:
+ --Ejecutar lo siguiente:
 GO
 USE DB_TPC
 

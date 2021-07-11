@@ -1,5 +1,5 @@
 create database DB_TPC
-
+ 
 GO
 
 use DB_TPC
