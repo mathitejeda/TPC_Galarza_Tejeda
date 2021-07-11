@@ -5,11 +5,9 @@ GO
 use DB_TPC
 
 GO
-create table Areas
-(
-    IDArea int PRIMARY KEY identity(1,1),
-    nombre varchar(10) not null,
-    descripcion VARCHAR(100) not null
+create table Servicios(
+    IDServicio int PRIMARY KEY IDENTITY (1,1),
+    Nombre varchar(30) not null
 )
 
 GO
@@ -38,9 +36,9 @@ create table Usuarios
 	domicilio varchar(50) null default('N/A'),
 	telefono varchar(50) null default('N/A'),
 	celular varchar(50) null default('N/A'),
-	mail varchar(50) not null UNIQUE,
+	mail varchar(50) not null unique,
 	codigoPostal smallint null DEFAULT(0),
-	estado bit default(1)
+	estado bit not null default(1)
 )
 
 GO
@@ -78,7 +76,7 @@ create table Ticket(
     FechaIngreso date not null,
     FechaEgreso date null,
 	nroserie bigint FOREIGN KEY references serieproducto(nroserie) null,
-	IDArea int  foreign key references AREAS(IDAREA) NULL
+	IDServicio int  FOREIGN KEY references Servicios(IDServicio) NULL
 )
 
 GO
@@ -91,15 +89,9 @@ create table ProductosPorCliente(
 GO
 create table UsuariosPorArea
 (
-	IDUsuario bigint,
-	IDArea int,
-	primary key(IDUsuario, IDarea),
-	foreign key(IDUsuario) references usuarios(IDUsuario),
-	foreign key (IDArea) references areas(IDArea)
+	IDUsuario bigint foreign key references usuarios(IDUsuario) NOT NULL,
+	IDServicio int  FOREIGN KEY references Servicios(IDServicio) NOT NULL
+	primary key(IDUsuario, IDServicio)	
 )
 
-GO
-create table servicios(
-    IDServicio int PRIMARY KEY IDENTITY (1,1),
-    Nombre varchar(30) not null
-)
+
