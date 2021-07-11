@@ -8,10 +8,10 @@ namespace Modelo
 {
     public class Productos
     {
-        public long id;
-        public string nombre;
-        public string detalle;
-        public long numeroSerie;
+        public long id {get; set;}
+        public string nombre {get; set;}
+        public string detalle {get; set;}
+        public long numeroSerie {get; set;}
 
         public Productos(string nombre)
         {

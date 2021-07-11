@@ -7,7 +7,7 @@ using Modelo;
 
 namespace Controlador
 {
-    class ProductoNegocio
+    public class ProductoNegocio
     {
         public List<Productos> Listar()
         {
@@ -15,7 +15,7 @@ namespace Controlador
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "select p.nombre, p.descripcion, sp.NROSerie " +
+                string consulta = "select p.IDProducto, p.nombre, p.descripcion, sp.NROSerie " +
                     "from productos as P " +
                     "inner join serieProducto as SP on SP.IDProducto = P.IDProducto ";
                 datos.setConsulta(consulta);
@@ -23,9 +23,10 @@ namespace Controlador
                 while (datos.Lector.Read())
                 {
                     Productos aux = new Productos();
-                    aux.nombre=datos.Lector.GetString(0);
-                    aux.detalle = datos.Lector.GetString(1);
-                    aux.numeroSerie = datos.Lector.GetInt64(2);
+                    aux.id = datos.Lector.GetInt64(0);
+                    aux.nombre=datos.Lector.GetString(1);
+                    aux.detalle = datos.Lector.GetString(2);
+                    aux.numeroSerie = datos.Lector.GetInt64(3);
                     lista.Add(aux);
                 }
                 return lista;

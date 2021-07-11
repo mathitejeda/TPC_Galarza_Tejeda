@@ -19,10 +19,12 @@ namespace Modelo
         {
             get; set;
         }
+        public string problema{get;set;}
         public string estado
         {
             get; set;
         }
+        public Servicios servicios { get; set; }
         public DateTime fechaIngreso { get; set; }
         public DateTime fechaFinalizacion { get; set; }
     }

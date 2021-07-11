@@ -9,18 +9,18 @@ namespace Controlador
 {
     public class servicioNegocio
     {
-        public List<servicios> listar()
+        public List<Servicios> listar()
         {
-            List<servicios> lista = new List<servicios>();
+            List<Servicios> lista = new List<Servicios>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "select S.IDTipo, S.Nombre from servicios as S";
+                string consulta = "select S.IDServicio, S.Nombre from servicios as S";
                 datos.setConsulta(consulta);
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
-                    servicios aux = new servicios();
+                    Servicios aux = new Servicios();
                     aux.IDTipo = datos.Lector.GetInt32(0);
                     aux.Nombre = datos.Lector.GetString(1);
                     lista.Add(aux);

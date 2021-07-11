@@ -4,7 +4,7 @@
     <script src="js/jquery.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="col p-2">
+	<div class="col p-2">
         <asp:Label runat="server" ID="confirmacionEstado"></asp:Label>
         <table class="table table-hover">
                 <tbody>
@@ -12,7 +12,7 @@
                     <th scope="row">Producto</th>
                     <td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlProducto" runat="server" AppendDataBoundItems ="true">
-                            <asp:ListItem Text=""></asp:ListItem>
+                            <asp:ListItem Text="Seleccionar..."></asp:ListItem>
                         </asp:DropDownList>
                     <td colspan="2">
                         <asp:RequiredFieldValidator runat="server" CssClass="text-danger" ErrorMessage="Tipo de producto" ControlToValidate="ddlProducto"></asp:RequiredFieldValidator></td>
@@ -20,14 +20,14 @@
                 <tr>
                     <th scope="row">Tipo de Servicio</th>
                     <td colspan="2">
-                        <asp:DropDownList cssClass="form-control" ID="ddlArticulo" runat="server" AppendDataBoundItems ="true">
-                            <asp:ListItem Text=""></asp:ListItem>
+                        <asp:DropDownList cssClass="form-control" ID="ddlServicio" runat="server" AppendDataBoundItems ="true">
+                            <asp:ListItem Text="Seleccionar..."></asp:ListItem>
                         </asp:DropDownList>
                    
                     <tr>
-                    <th scope="row">Observaciones</th>
+                    <th scope="row">Problema</th>
                     <td colspan="2">
-                        <asp:TextBox runat="server" ID="tbObservaciones" CssClass="form-control" MaxLength="299" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="tbProblema" CssClass="form-control" MaxLength="299" TextMode="MultiLine"></asp:TextBox>
                     </td>
                     <td colspan="2">
                         <asp:RequiredFieldValidator runat="server" CssClass="text-danger" ErrorMessage="Observaciones " ControlToValidate="tbObservaciones"></asp:RequiredFieldValidator>
