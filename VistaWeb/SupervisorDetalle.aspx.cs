@@ -11,9 +11,11 @@ namespace VistaWeb
 {
     public partial class SupervisorDetalle : System.Web.UI.Page
     {
-        public List<Usuario> tecnicos;
-        public int IDSeleccionado;
+        //public List<Usuario> tecnicos;
+        public int IDSeleccionado { get; set; }
         public Usuario usuario { get; set; }
+        public UsuarioNegocio usuarioNegocio { get; set; }
+        public List<Usuario> listaTecnicos { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,25 +24,34 @@ namespace VistaWeb
             usuario = (Usuario)Session[Session.SessionID + "usuarioLogueado"];
             if ((Session[Session.SessionID + "usuarioLogueado"]) == null) { Response.Redirect("Login.aspx"); }
 
+            if (!this.IsPostBack)
+            {
+                //traigo los técnicos de session y los coloco en el ddl
+                listaTecnicos = new List<Usuario>();
+                listaTecnicos = (List<Usuario>)Session[Session.SessionID + "listaTecnicos"];
+                ddlTecnicos.DataSource = listaTecnicos;
+                ddlTecnicos.DataTextField = "Apellido";
+                ddlTecnicos.DataValueField = "Id";
+                ddlTecnicos.DataBind();
+            }
+
+
             UsuarioNegocio Unegocio = new UsuarioNegocio();
             IDSeleccionado = Convert.ToInt32(Request.QueryString["id"]);
             ticketNegocio Tnegocio = new ticketNegocio();
-            Ticket ticketSeleccionado = Tnegocio.detalle(IDSeleccionado);
+            //Ticket ticketSeleccionado = Tnegocio.detalle(IDSeleccionado);
             try
             {
-                tecnicos = Unegocio.ListarTecnicos();
+                //tecnicos = Unegocio.ListarTecnicos();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            ddlTecnicos.DataSource = tecnicos;
-            ddlTecnicos.DataTextField = "Apellido";
-            ddlTecnicos.DataValueField = "Id";
-            ddlTecnicos.DataBind();
-            TextBoxCliente.Text = ticketSeleccionado.cliente.Nombre;
-            TextBoxproducto.Text = ticketSeleccionado.producto.nombre;
-            TextBoxObservaciones.Text = ticketSeleccionado.detalle;
+            
+            //TextBoxCliente.Text = ticketSeleccionado.cliente.Nombre;
+            //TextBoxproducto.Text = ticketSeleccionado.producto.nombre;
+            //TextBoxObservaciones.Text = ticketSeleccionado.detalle;
 
 
         }

@@ -15,6 +15,12 @@
                     </td>
                 </tr>
                 <tr>
+                    <th scope="row">Serie</th>
+                    <td colspan="2">
+                        <asp:TextBox cssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
                     <th scope="row">Observaciones</th>
                     <td colspan="2">
                         <asp:TextBox runat="server" ID="tbObservaciones" CssClass="form-control" MaxLength="299" TextMode="MultiLine"></asp:TextBox>

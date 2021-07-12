@@ -14,6 +14,7 @@ namespace VistaWeb
         public int idUsuario { get; set; }
         public UsuarioNegocio usuarioNegocio { get; set; }
         public Usuario usuario { get; set; }
+        public List<Usuario> listaUsuario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -39,6 +40,13 @@ namespace VistaWeb
                             Response.Redirect("TecnicoDefault.aspx");
                             break;
                         case 2:
+
+                            //creo una funcion lista tecnicos y la cargo en session
+
+                            listaUsuario = new List<Usuario>();
+                            listaUsuario = usuarioNegocio.ListarTecnicos();
+                            Session[Session.SessionID + "listaTecnicos"] = listaUsuario;
+
                             Response.Redirect("SupervisorAsignacionTicket.aspx");
                             break;
                         default:
