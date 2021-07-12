@@ -11,8 +11,9 @@ namespace VistaWeb
 {
     public partial class Default : Page
     {
-        public List<Ticket> Listado { get; set; }
+        public List<ListaTicket> Listado { get; set; }
         public Usuario usuario { get; set; }
+        public ticketNegocio negocio { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,11 +22,11 @@ namespace VistaWeb
             usuario = (Usuario)Session[Session.SessionID + "usuarioLogueado"];
             if ((Session[Session.SessionID + "usuarioLogueado"]) == null) { Response.Redirect("Login.aspx"); }
             
-            ticketNegocio negocio = new ticketNegocio();
+            negocio = new ticketNegocio();
 
             try
             {
-                Listado = negocio.listar();
+                Listado = negocio.listarTicketsClientes(usuario.Id);
             }
             catch (Exception ex)
             {

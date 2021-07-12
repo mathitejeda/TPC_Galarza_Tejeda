@@ -43,6 +43,80 @@ namespace Controlador
             }
             
         }
+
+
+        public List<ListaTicket> listarTicketsClientes(long idCliente)
+        {
+            List<ListaTicket> lista = new List<ListaTicket>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta =
+                    "SELECT T.IDTicket, ET.nombre, ISNULL(TEC.apellido + ' ' + TEC.nombre, 'Sin Asignar') AS TECNICO, T.FechaIngreso, P.nombre " +
+                    "FROM Ticket AS T " +
+                    "INNER join EstadoTicket as ET on T.IDEstado = ET.IDEstado " +
+                    "left join usuarios as TEC on T.IDTecnico = TEC.IDUsuario " +
+                    "inner join usuarios as CLI on T.IDCliente = CLI.IDUsuario " +
+                    "inner join productos as P on T.IDProducto = P.IDProducto " +
+                    "WHERE T.IDCliente = " + idCliente + 
+                    " ORDER BY T.IDTicket DESC";
+                datos.setConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    ListaTicket aux = new ListaTicket();
+                    aux.IdTicket = datos.Lector.GetInt32(0);
+                    aux.Estado = datos.Lector.GetString(1);
+                    aux.Tecnico = datos.Lector.GetString(2);
+                    aux.FechaIngreso = datos.Lector.GetDateTime(3);
+                    aux.Producto = datos.Lector.GetString(4);
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        //listado de los tickets que no tienen técnico asignado
+        public List<ListaTicket> listarSupervisor()
+        {
+            List<ListaTicket> lista = new List<ListaTicket>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta =
+                    "select T.IDTicket, ET.nombre, CLI.nombre + ' ' + CLI.apellido AS CLIENTE, T.FechaIngreso, P.nombre " +
+                    "from Ticket as T " +
+                    "inner join EstadoTicket as ET on T.IDEstado = ET.IDEstado " +
+                    "left join usuarios as TEC on T.IDTecnico = TEC.IDUsuario " +
+                    "inner join usuarios as CLI on T.IDCliente = CLI.IDUsuario " +
+                    "inner join productos as P on T.IDProducto = P.IDProducto " +
+                    "WHERE T.IDTecnico IS NULL AND ET.nombre NOT LIKE 'Finalizado'";
+                datos.setConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    ListaTicket aux = new ListaTicket();
+                    aux.IdTicket = datos.Lector.GetInt32(0);
+                    aux.Estado = datos.Lector.GetString(1);
+                    aux.Cliente = datos.Lector.GetString(2);
+                    aux.FechaIngreso = datos.Lector.GetDateTime(3);
+                    aux.Producto = datos.Lector.GetString(4);
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public Ticket detalle(int id)
         {
             AccesoDatos datos = new AccesoDatos();

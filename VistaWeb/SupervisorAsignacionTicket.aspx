@@ -26,14 +26,14 @@
 			<asp:Repeater runat="server" ID="repeaterSupervisor">
 				<ItemTemplate>
 					<tr>
-						<th scope="row"><%#Eval("idTicket") %></th>
-						<td><%#Eval("estado") %></td>
-						<td><%#Eval("cliente") %></td>
-						<td><%#Eval("tecnico") %></td>
-						<td><%#Eval("fechaIngreso") %></td>
-						<td><%#Eval("producto") %></td>
+						<th scope="row"><%#Eval("IdTicket") %></th>
+						<td><%#Eval("Estado") %></td>
+						<td><%#Eval("Cliente") %></td>
+						<td>Sin Tec Asignado</td>
+						<td><%#Eval("FechaIngreso") %></td>
+						<td><%#Eval("Producto") %></td>
 						<td>
-							<a href="SupervisorDetalle.aspx?id=<%#Eval("idTicket") %> " class="btn btn-primary btn-user btn-block">Asignar</a>
+							<a href="SupervisorDetalle.aspx?id=<%#Eval("IdTicket") %> " class="btn btn-primary btn-user btn-block">Asignar</a>
 						</td>
 					</tr>
 				</ItemTemplate>
