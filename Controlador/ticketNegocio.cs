@@ -125,38 +125,41 @@ namespace Controlador
 
         }
 
-        //public Ticket detalle(int id)
-        //{
-        //    AccesoDatos datos = new AccesoDatos();
-        //    Ticket aux = new Ticket();
-        //    try
-        //    {
-        //        string consulta =
-        //            "select T.IDTicket, ET.nombre,CLI.nombre, TEC.nombre, T.FechaIngreso,p.nombre " +
-        //            "from ticket as T " +
-        //            "inner join estadoTicket as ET on T.IDEstado=ET.IDEstado " +
-        //            "left join usuarios as TEC on T.IDTecnico=TEC.IDUsuario " +
-        //            "inner join usuarios as CLI on T.IDCliente=CLI.IDUsuario " +
-        //            "inner join productos as P on T.IDProducto=P.IDProducto " +
-        //            "where T.IDTicket="+id;
-        //        datos.setConsulta(consulta);
-        //        datos.ejecutarLectura();
-        //        while (datos.Lector.Read())
-        //        {
-        //            aux.idTicket = datos.Lector.GetInt32(0);
-        //            aux.Estado = new EstadoTicket(datos.Lector.GetString(1));
-        //            aux.cliente = new Usuario(datos.Lector.GetString(2));
-        //            aux.tecnico = string.IsNullOrEmpty(datos.Lector.GetString(3)) ? aux.tecnico = new Usuario("N/A") : new Usuario(datos.Lector.GetString(3));
-        //            aux.fechaIngreso = datos.Lector.GetDateTime(4);
-        //            aux.producto = new Productos(datos.Lector.GetString(5));
-        //        }
-        //        return aux;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public ListaTicket Detalle(long idticket)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            ListaTicket aux = new ListaTicket();
+            try
+            {
+                string consulta =
+                    "select p.nombre, s.NROSerie, t.Problema, isnull(t.Diagnostico, 'Sin Diagnostico'), isnull(t.Solucion, 'Sin solucion'), e.nombre from Ticket as t " +
+                    "inner join Productos as p on p.IDProducto = t.IDProducto " +
+                    "inner join SerieProducto as S on s.IDProducto = t.IDProducto and s.IDUsuario = t.IDCliente " +
+                    "inner join EstadoTicket as e on e.IDEstado = t.IDEstado  " +
+                    "where t.IDTicket = " + idticket; 
+                datos.setConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    aux.Producto = datos.Lector.GetString(0);
+                    aux.NROSerie = datos.Lector.GetInt64(1);
+                    aux.problema = datos.Lector.GetString(2);
+                    aux.diagnostico = datos.Lector.GetString(3);
+                    aux.solucion = datos.Lector.GetString(4);
+                    aux.Estado = datos.Lector.GetString(5);
+                    return aux;
+                }
+                return aux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
         public bool CrearTicket(ListaTicket ticket)
         {

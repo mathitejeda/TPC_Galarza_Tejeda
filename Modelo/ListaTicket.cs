@@ -24,5 +24,9 @@ namespace Modelo
         public String Producto { get; set; }
         public String problema { get; set; }
 
+        public String diagnostico { get; set; }
+        public String solucion { get; set; }
+        
+
     }
 }

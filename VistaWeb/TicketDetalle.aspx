@@ -17,7 +17,7 @@
                 <tr>
                     <th scope="row">Serie</th>
                     <td colspan="2">
-                        <asp:TextBox cssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox cssClass="form-control" ID="tbserie" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
