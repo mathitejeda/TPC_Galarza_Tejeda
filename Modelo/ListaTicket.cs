@@ -10,14 +10,19 @@ namespace Modelo
     {
         public int IdTicket { get; set; }
         public int IDEstado { get; set; }
-        public int IdCliente { get; set; }
+        public long IdCliente { get; set; }
+        public long IdProducto { get; set; }
+        
         public int IdTecnico { get; set; }
-        public int IdProducto { get; set; }
+        public int IdServicio { get; set; }
+        public long IDProducto { get; set; }
+        public long NROSerie { get; set; }
         public String Estado { get; set; }
         public String Cliente { get; set; }
         public String Tecnico { get; set; }
         public DateTime FechaIngreso { get; set; }
         public String Producto { get; set; }
-        
+        public String problema { get; set; }
+
     }
 }

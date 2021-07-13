@@ -19,6 +19,8 @@ namespace VistaWeb
         public List<Usuario> listaUsuario { get; set; }
         public UsuarioNegocio usuarioNegocio { get; set; }
         public ProductoNegocio productoNegocio { get; set; }
+        public ListaTicket crearTicket { get; set; }
+        public ticketNegocio ticketnegocio { get; set; }
 
         //Usuario usuarioLogeado;
         protected void Page_Load(object sender, EventArgs e)
@@ -83,6 +85,26 @@ namespace VistaWeb
 
         protected void btnCrear_Click(object sender, EventArgs e)
         {
+            crearTicket = new ListaTicket();
+            crearTicket.IdCliente = usuario.Id;
+            crearTicket.IDProducto = long.Parse(ddlProducto.SelectedValue);
+            crearTicket.NROSerie = long.Parse(ddlserie.SelectedValue);
+            crearTicket.problema = tbProblema.Text;
+            crearTicket.IdServicio = int.Parse(ddlServicio.SelectedValue);
+
+            ticketnegocio = new ticketNegocio();
+            if (ticketnegocio.CrearTicket(crearTicket))
+            {
+                confirmacionEstado.CssClass = "text-success";
+                confirmacionEstado.Text = "ticket creado correctamente";
+                Response.Redirect("Default.aspx");
+            }
+            else
+            {
+                confirmacionEstado.CssClass = "text-danger";
+                confirmacionEstado.Text = "ticket NO creado";
+            }
+
             //IDCliente bigint FOREIGN key references usuarios(IDUsuario) not null,
             //    FechaIngreso date not null,
 

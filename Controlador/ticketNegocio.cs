@@ -78,6 +78,10 @@ namespace Controlador
             {
                 throw ex;
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
 
         }
 
@@ -113,6 +117,10 @@ namespace Controlador
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
 
         }
@@ -150,23 +158,34 @@ namespace Controlador
         //    }
         //}
 
-        //public void crearTicket(Ticket ticket){
-        //    AccesoDatos datos = new AccesoDatos();
-        //    try
-        //    {
-        //        datos.setConsulta("insert into Ticket(IDCliente, IDProducto,IDServicio, problema) values(@idcliente,@idproducto,@idservicio,@problema)");
-        //        datos.setParametro("@idcliente",ticket.cliente.Id);
-        //        datos.setParametro("@idproducto",ticket.producto.id);
-        //        datos.setParametro("@idservicio",ticket.servicios.IDTipo);
-        //        datos.setParametro("@problema",ticket.problema);
+        public bool CrearTicket(ListaTicket ticket)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            bool result = false;
+            try
+            {
+                datos.setConsulta("insert into Ticket(IDCliente, IDProducto, problema, FechaIngreso, " +
+                    "nroserie, IDServicio) values(@idcliente, @idproducto, @problema, @FechaIngreso, @nroserie, @idservicio)");
+                datos.setParametro("@idcliente", ticket.IdCliente);
+                datos.setParametro("@idproducto", ticket.IDProducto);
+                datos.setParametro("@problema", ticket.problema);
+                datos.setParametro("@FechaIngreso", DateTime.Now);
+                datos.setParametro("@nroserie", ticket.NROSerie);
+                datos.setParametro("@idservicio", ticket.IdServicio);
+                datos.ejecutarAccion();
+                result = true;
 
-        //        datos.ejecutarAccion();
-        //    }
-        //    catch (System.Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+            }
+            catch (System.Exception)
+            {
+                //throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            return result;
+        }
 
         public void actualizarTicketTecnico(Ticket ticket)
         {
@@ -184,6 +203,13 @@ namespace Controlador
 
                 throw ex;
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
+
+        
+
     }
 }
