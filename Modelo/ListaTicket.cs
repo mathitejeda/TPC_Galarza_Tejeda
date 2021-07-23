@@ -12,7 +12,6 @@ namespace Modelo
         public int IDEstado { get; set; }
         public long IdCliente { get; set; }
         public long IdProducto { get; set; }
-        
         public int IdTecnico { get; set; }
         public int IdServicio { get; set; }
         public long IDProducto { get; set; }
@@ -21,12 +20,13 @@ namespace Modelo
         public String Cliente { get; set; }
         public String Tecnico { get; set; }
         public DateTime FechaIngreso { get; set; }
+        public DateTime FechaEgreso { get; set; }
         public String Producto { get; set; }
         public String problema { get; set; }
-
         public String diagnostico { get; set; }
         public String solucion { get; set; }
-        
+        public String servicio { get; set; }
+
 
     }
 }

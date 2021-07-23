@@ -24,31 +24,40 @@ namespace VistaWeb
         protected global::System.Web.UI.WebControls.Label confirmacionEstado;
 
         /// <summary>
-        /// Control TextBoxCliente.
+        /// Control TBCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxCliente;
+        protected global::System.Web.UI.WebControls.TextBox TBCliente;
 
         /// <summary>
-        /// Control TextBoxproducto.
+        /// Control TBproducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxproducto;
+        protected global::System.Web.UI.WebControls.TextBox TBproducto;
 
         /// <summary>
-        /// Control TextBoxTipodeServicio.
+        /// Control TBserie.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxTipodeServicio;
+        protected global::System.Web.UI.WebControls.TextBox TBserie;
+
+        /// <summary>
+        /// Control TBTipodeServicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TBTipodeServicio;
 
         /// <summary>
         /// Control ddlTecnicos.
@@ -60,13 +69,13 @@ namespace VistaWeb
         protected global::System.Web.UI.WebControls.DropDownList ddlTecnicos;
 
         /// <summary>
-        /// Control TextBoxObservaciones.
+        /// Control TBObservaciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxObservaciones;
+        protected global::System.Web.UI.WebControls.TextBox TBObservaciones;
 
         /// <summary>
         /// Control ButtonAsignar.

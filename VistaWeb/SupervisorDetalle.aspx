@@ -11,32 +11,37 @@
                     <tr>
                     <th scope="row">Cliente</th>
                     <td colspan="2">
-                        <asp:TextBox cssClass="form-control" ID="TextBoxCliente" runat="server"></asp:TextBox>
+                        <asp:TextBox cssClass="form-control" ID="TBCliente" runat="server" ReadOnly="True"></asp:TextBox>
                      
                     </tr>
                 <tr>
                     <th scope="row">Producto</th>
                     <td colspan="2">
-                        <asp:TextBox cssClass="form-control" ID="TextBoxproducto" runat="server"></asp:TextBox>
+                        <asp:TextBox cssClass="form-control" ID="TBproducto" runat="server" ReadOnly="True"></asp:TextBox>
+                     
+                    </tr>
+                    <tr>
+                    <th scope="row">Serie </th>
+                    <td colspan="2">
+                        <asp:TextBox cssClass="form-control" ID="TBserie" runat="server" ReadOnly="True"></asp:TextBox>
                      
                     </tr>
                      <tr>
                     <th scope="row">Tipo de Servicio</th>
                     <td colspan="2">
-                        <asp:TextBox cssClass="form-control" ID="TextBoxTipodeServicio" runat="server"></asp:TextBox>
+                        <asp:TextBox cssClass="form-control" ID="TBTipodeServicio" runat="server" ReadOnly="True"></asp:TextBox>
                      
                     </tr>
                 <tr>
                     <th scope="row">Tecnico </th>
 						<td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlTecnicos" runat="server" AppendDataBoundItems ="true">
-                            <asp:ListItem Text="Seleccionar...">  </asp:ListItem>
                         </asp:DropDownList>
                         </td>
                     <tr>
                     <th scope="row">Observaciones</th>
                     <td colspan="2">
-                        <asp:TextBox runat="server" ID="TextBoxObservaciones" CssClass="form-control" MaxLength="299" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="TBObservaciones" CssClass="form-control" MaxLength="299" TextMode="MultiLine" ReadOnly="True"></asp:TextBox>
                     </td>
                     
                 </tr>
@@ -47,7 +52,7 @@
   <div class="row">
     <div class="col text-center">
         
-     <asp:Button runat="server" cssClass="btn btn-primary btn-user" Text="Asignar" ID="ButtonAsignar" OnClick="btnAsignar_Click" /><class = "btn-toolbar"></class> <a href="default.aspx" class="btn btn-primary btn-user">Cancelar </a>
+     <asp:Button runat="server" cssClass="btn btn-primary btn-user" Text="Asignar" ID="ButtonAsignar" OnClick="btnAsignar_Click" /><class = "btn-toolbar"></class> <a href="SupervisorAsignacionTicket.aspx" class="btn btn-primary btn-user">Cancelar </a>
     </div> 
   </div>
 </div>

@@ -92,8 +92,6 @@ namespace Controlador
                         "WHERE U.mail = '" + mail +
                         "' AND A.Contrasenia = '" + contrasenia + "'"
                         );
-                //datos.setParametro("@email", email);
-                //datos.setParametro("@password", password);
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -115,35 +113,6 @@ namespace Controlador
                 datos.cerrarConexion();
                 datos = null;
             }
-
-
-            //try
-            //{
-            //    datos.setConsulta("SELECT U.IDUsuario FROM Autenticaciones AS A " +
-            //        "INNER JOIN usuarios AS U ON A.IDUsuario = U.IDUsuario " +
-            //        "WHERE U.mail = '" + mail + 
-            //        "' AND A.Contrasenia = '" + contrasenia + "'"
-            //        );
-            //datos.setParametro("@MAIL", mail);
-            //datos.setParametro("@CONTRASENIA", contrasenia);
-            //    datos.ejecutarLectura();
-            //    while (datos.Lector.Read())
-            //    {
-            //        result = datos.Lector.GetInt32(0);
-
-            //    }
-            //    return result;
-            //}
-            //catch (Exception ex)
-            //{
-            //    return result;
-            //    //throw ex;
-            //}
-            //finally
-            //{
-            //    datos.cerrarConexion();
-            //}
-
         }
 
         public Usuario DevolverUsuario(int idUsuario)
@@ -179,6 +148,63 @@ namespace Controlador
             result.Id = 0;
             return result;
         }
+
+        public List<Usuario> ListarTecnicosPorServicio(int idservicio)
+        {
+            List<Usuario> lista = new List<Usuario>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta =
+                    "select u.IDUsuario, u.nombre + ' ' + u.apellido from Usuarios as u " +
+                    "inner join UsuariosPorArea as upa on upa.IDUsuario = u.IDUsuario " +
+                    "where upa.IDServicio = " + idservicio;
+                datos.setConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Usuario aux = new Usuario();
+                    aux.Id = datos.Lector.GetInt64(0);
+                    aux.Nombre = datos.Lector.GetString(1);
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
+        public bool AsignarTecnico(long idtecnico, long idticket)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            bool result = false;
+            try
+            {
+                datos.setConsulta("update Ticket set IDTecnico = @IDTecnico where IDTicket = @IDTicket");
+                datos.setParametro("@IDTecnico", idtecnico);
+                datos.setParametro("@IDTicket", idticket);
+                datos.ejecutarAccion();
+                result = true;
+
+            }
+            catch (System.Exception)
+            {
+                //throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            return result;
+        }
+
     }
 }
 

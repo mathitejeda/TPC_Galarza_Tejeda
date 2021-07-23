@@ -11,29 +11,61 @@ namespace VistaWeb
 {
     public partial class SupervisorAsignacionTicket : System.Web.UI.Page
     {
-        public List<ListaTicket> Listado { get; set; }
+        public List<UsuarioNegocio> listaTecnicos { get; set; }
         public Usuario usuario { get; set; }
-        public ticketNegocio negocio { get; set; }
+        public UsuarioNegocio usuarionegocio { get; set; }
+        public ListaTicket ticket { get; set; }
+        public List<ListaTicket> listaTicket { get; set; }
+        public ticketNegocio ticketnegocio { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             //si no existe usuario, me voy a la pagina de login
             usuario = new Usuario();
             usuario = (Usuario)Session[Session.SessionID + "usuarioLogueado"];
             if ((Session[Session.SessionID + "usuarioLogueado"]) == null) { Response.Redirect("Login.aspx"); }
-                        
-            negocio = new ticketNegocio();
 
-            try
+            int filtro = -1;
+            if (Request.QueryString["condicion"] == null)
             {
-                Listado = negocio.listarSupervisor();
+                filtro = -1;
             }
-            catch (Exception ex)
+            else
             {
-                //TODO: Agregar una pantalla de error para poder redireccionar
-                throw ex;
+                String condicion = Request.QueryString["condicion"];
+                switch (condicion)
+                {
+                    case "Todos":
+                        filtro = -1;
+                        break;
+                    case "Ingresado":
+                        filtro = 1;
+                        break;
+                    case "Enproceso":
+                        filtro = 2;
+                        break;
+                    case "Aceptado":
+                        filtro = 3;
+                        break;
+                    case "Rechazado":
+                        filtro = 4;
+                        break;
+                    case "Finalizado":
+                        filtro = 5;
+                        break;
+                    default:
+                        filtro = -1;
+                        break;
+                }
             }
-            repeaterSupervisor.DataSource = Listado;
+
+            ticketnegocio = new ticketNegocio();
+            listaTicket = new List<ListaTicket>();
+
+            listaTicket = ticketnegocio.ListarSupervisor(filtro);
+
+            repeaterSupervisor.DataSource = listaTicket;
             repeaterSupervisor.DataBind();
+
         }
     }
 }

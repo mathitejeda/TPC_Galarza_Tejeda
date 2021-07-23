@@ -18,8 +18,6 @@
 				<th scope="col">Fecha Ingreso</th>
 				<th scope="col">Producto</th>
 				<th scope="col"></th>
-
-
 			</tr>
 		</thead>
 		<tbody>
@@ -29,7 +27,7 @@
 						<th scope="row"><%#Eval("IdTicket") %></th>
 						<td><%#Eval("Estado") %></td>
 						<td><%#Eval("Cliente") %></td>
-						<td>Sin Tec Asignado</td>
+						<td><%#Eval("Tecnico") %></td>
 						<td><%#Eval("FechaIngreso") %></td>
 						<td><%#Eval("Producto") %></td>
 						<td>

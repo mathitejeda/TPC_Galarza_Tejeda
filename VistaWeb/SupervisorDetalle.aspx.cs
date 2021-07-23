@@ -10,12 +10,12 @@ using Controlador;
 namespace VistaWeb
 {
     public partial class SupervisorDetalle : System.Web.UI.Page
-    {
-        //public List<Usuario> tecnicos;
-        public int IDSeleccionado { get; set; }
+    {   
         public Usuario usuario { get; set; }
-        public UsuarioNegocio usuarioNegocio { get; set; }
         public List<Usuario> listaTecnicos { get; set; }
+        public ListaTicket listaTicket { get; set; }
+        public ticketNegocio ticketnegocio { get; set; }
+        public UsuarioNegocio usuarionegocio { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,41 +24,48 @@ namespace VistaWeb
             usuario = (Usuario)Session[Session.SessionID + "usuarioLogueado"];
             if ((Session[Session.SessionID + "usuarioLogueado"]) == null) { Response.Redirect("Login.aspx"); }
 
+            //si no viene el ID, retrocedo
+            if (Request.QueryString["id"] == null) Response.Redirect("SupervisorAsignacionTicket.aspx");
+            int idseleccionado = Convert.ToInt32(Request.QueryString["id"]);
+
             if (!this.IsPostBack)
             {
-                //traigo los técnicos de session y los coloco en el ddl
+                ticketnegocio = new ticketNegocio();
+                listaTicket = new ListaTicket();
+                listaTicket = ticketnegocio.DetalleSupervisor(idseleccionado);
+
+                usuarionegocio = new UsuarioNegocio();
                 listaTecnicos = new List<Usuario>();
-                listaTecnicos = (List<Usuario>)Session[Session.SessionID + "listaTecnicos"];
+                listaTecnicos = usuarionegocio.ListarTecnicosPorServicio(listaTicket.IdServicio);
+                
                 ddlTecnicos.DataSource = listaTecnicos;
-                ddlTecnicos.DataTextField = "Apellido";
+                ddlTecnicos.DataTextField = "Nombre";
                 ddlTecnicos.DataValueField = "Id";
                 ddlTecnicos.DataBind();
+
+                TBCliente.Text = listaTicket.Cliente;
+                TBproducto.Text = listaTicket.Producto;
+                TBserie.Text = Convert.ToString(listaTicket.NROSerie);
+                TBTipodeServicio.Text = listaTicket.servicio;
+                TBObservaciones.Text = listaTicket.problema;
             }
-
-
-            UsuarioNegocio Unegocio = new UsuarioNegocio();
-            IDSeleccionado = Convert.ToInt32(Request.QueryString["id"]);
-            ticketNegocio Tnegocio = new ticketNegocio();
-            //Ticket ticketSeleccionado = Tnegocio.detalle(IDSeleccionado);
-            try
-            {
-                //tecnicos = Unegocio.ListarTecnicos();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            
-            //TextBoxCliente.Text = ticketSeleccionado.cliente.Nombre;
-            //TextBoxproducto.Text = ticketSeleccionado.producto.nombre;
-            //TextBoxObservaciones.Text = ticketSeleccionado.detalle;
-
-
         }
 
         protected void btnAsignar_Click(object sender, EventArgs e)
         {
+            usuarionegocio = new UsuarioNegocio();
 
+            if (usuarionegocio.AsignarTecnico(Convert.ToInt64(ddlTecnicos.SelectedValue), Convert.ToInt64(Request.QueryString["id"])))
+            {
+                confirmacionEstado.CssClass = "text-success";
+                confirmacionEstado.Text = "Tecnico asignado correctamente";
+                Response.Redirect("SupervisorAsignacionTicket.aspx");
+            }
+            else
+            {
+                confirmacionEstado.CssClass = "text-danger";
+                confirmacionEstado.Text = "tecnico NO pudo ser creado";
+            }
         }
     }
 }

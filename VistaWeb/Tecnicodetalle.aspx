@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col p-2">
+        <asp:Label runat="server" ID="confirmacionEstado"></asp:Label>
         <table class="table table-hover">
             <tbody>
                 <tr>
@@ -17,6 +18,12 @@
                     <th scope="row">Producto</th>
                     <td colspan="2">
                         <asp:TextBox cssClass="form-control" ID="tbProducto" runat="server" ReadOnly="true"></asp:TextBox>
+                    </td>
+                </tr>
+                 <tr>
+                    <th scope="row">Serie</th>
+                    <td colspan="2">
+                        <asp:TextBox cssClass="form-control" ID="tbSerie" runat="server" ReadOnly="true"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -41,7 +48,6 @@
                     <th scope="row">Estado</th>
                     <td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlEstado" runat="server" AppendDataBoundItems ="true">
-                        <asp:ListItem Text="Seleccionar..."></asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>

@@ -36,39 +36,63 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto pt-3 pt-lg-0">
 
+                        <% if (tipoUsuario==4)
+                            {
+                        %>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tickets
                             </a>
                             <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
-                                 <a class="dropdown-item" href="/">Todos</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=aprobadas">Aprobados</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=pendientes">Pendientes</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=rechazadas">Rechazados</a>
-                                <a class="dropdown-item" href="Default.aspx?condicion=terminados">Terminados</a>
-                               
+                                 <a class="dropdown-item" href="Default.aspx?condicion=Todos">Todos</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Ingresado">Ingresado</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Enproceso">En proceso</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Aceptado">Aceptado</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Rechazado">Rechazado</a>
+                                <a class="dropdown-item" href="Default.aspx?condicion=Finalizado">Finalizado</a>
                             </div>
-                        </li>
-                        <%--definir si se sgregan mas campos--%>
-                        <%--<li class="nav-item">
-                            <a class="nav-link" href="NoPage.aspx">NoPage</a>
-                        //</li>
-                        //<li class="nav-item">
-                            <a class="nav-link" href="NoPage.aspx?condicion=habilitadas&tipo=cliente">NoPage</a>
-                        </li>--%>
-                        
-
-                       <% if (false)
-                            {
-                        %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="NoPage.aspx">NoPage</a>
                         </li>
                         <%
                             }
                         %>
-                        <%--<li class="nav-item">
-                            <a class="nav-link" href="NoPage.aspx?condicion=habilitados">NoPage</a>
-                        </li>--%>
+
+                        <% if (tipoUsuario==2)
+                            {
+                        %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tickets
+                            </a>
+                            <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
+                                 <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Todos">Todos</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Ingresado">Ingresado</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Enproceso">En proceso</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Aceptado">Aceptado</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Rechazado">Rechazado</a>
+                                <a class="dropdown-item" href="SupervisorAsignacionTicket.aspx?condicion=Finalizado">Finalizado</a>
+                            </div>
+                        </li>
+                        <%
+                            }
+                        %>
+
+                        <% if (tipoUsuario==3)
+                            {
+                        %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tickets
+                            </a>
+                            <div class="dropdown-menu border-0 shadow animate slideIn" aria-labelledby="navbarDropdown">
+                                 <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Todos">Todos</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Ingresado">Ingresado</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Enproceso">En proceso</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Aceptado">Aceptado</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Rechazado">Rechazado</a>
+                                <a class="dropdown-item" href="TecnicoDefault.aspx?condicion=Finalizado">Finalizado</a>
+                            </div>
+                        </li>
+                        <%
+                            }
+                        %>
+
 
                     </ul>
                     <ul class="navbar-nav pb-3 pb-lg-0">

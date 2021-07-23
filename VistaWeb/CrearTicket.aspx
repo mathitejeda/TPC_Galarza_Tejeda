@@ -12,28 +12,22 @@
                     <th scope="row">Producto</th>
                     <td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlProducto" runat="server" AppendDataBoundItems ="true">
-                            <%--<asp:ListItem Text="Seleccionar..."></asp:ListItem>--%>
                         </asp:DropDownList>
-                    <td colspan="2">
-                        <%--<asp:RequiredFieldValidator runat="server" CssClass="text-danger" ErrorMessage="Colocar Tipo de producto" ControlToValidate="ddlProducto"></asp:RequiredFieldValidator>--%></td>
+                    <td colspan="2"></td>
                 </tr>
                      <tr>
                     <th scope="row">Serie</th>
                     <td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlserie" runat="server" AppendDataBoundItems ="true">
-                            <%--<asp:ListItem Text="Seleccionar..."></asp:ListItem>--%>
                         </asp:DropDownList>
-                    <td colspan="2">
-                        <%--<asp:RequiredFieldValidator runat="server" CssClass="text-danger" ErrorMessage="Elegir serie" ControlToValidate="ddlserie"></asp:RequiredFieldValidator>--%></td>
+                    <td colspan="2"></td>
                 </tr>
                 <tr>
                     <th scope="row">Tipo de Servicio</th>
                     <td colspan="2">
                         <asp:DropDownList cssClass="form-control" ID="ddlServicio" runat="server" AppendDataBoundItems ="true">
-                            <%--<asp:ListItem Text="Seleccionar..."></asp:ListItem>--%>
                         </asp:DropDownList>
-                        <td colspan="2">
-                        <%--<asp:RequiredFieldValidator runat="server" CssClass="text-danger" ErrorMessage="Elegir servicio" ControlToValidate="ddlServicio"></asp:RequiredFieldValidator>--%></td>
+                        <td colspan="2"></td>
                    
                     <tr>
                     <th scope="row">Problema</th>
@@ -55,6 +49,6 @@
     </div> 
   </div>
 </div>
-        
+        </div>
      
 </asp:Content>

@@ -22,7 +22,7 @@ namespace Controlador
                 {
                     EstadoTicket aux = new EstadoTicket();
                     aux.IDEstado = datos.Lector.GetInt32(0);
-                    aux.Nombre = datos.Lector.GetString(1);
+                    aux.nombre = datos.Lector.GetString(1);
                     estados.Add(aux);
                 }
                 return estados;

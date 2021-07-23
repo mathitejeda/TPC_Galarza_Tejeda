@@ -21,13 +21,13 @@ namespace VistaWeb
             usuario = (Usuario)Session[Session.SessionID + "usuarioLogueado"];
             if ((Session[Session.SessionID + "usuarioLogueado"]) == null) { Response.Redirect("Login.aspx"); }
             if (Request.QueryString["id"] == null) Response.Redirect("~/");
-            long idseleccionado = Convert.ToInt64(Request.QueryString["id"]);
+            int idseleccionado = Convert.ToInt32(Request.QueryString["id"]);
 
             if (!this.IsPostBack)
             {
                 listaTicket = new ListaTicket();
                 ticketnegocio = new ticketNegocio();
-                listaTicket = ticketnegocio.Detalle(idseleccionado);
+                listaTicket = ticketnegocio.DetalleCliente(idseleccionado);
 
                 tbProducto.Text = Convert.ToString( listaTicket.Producto);
                 tbserie.Text = Convert.ToString(listaTicket.NROSerie);

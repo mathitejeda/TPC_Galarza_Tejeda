@@ -9,19 +9,19 @@ namespace Modelo
         public class EstadoTicket
         {
             public int IDEstado { get; set; }
-            public string Nombre { get; set; }
+            public String nombre { get; set; }
             public override string ToString()
             {
-                return Nombre;
+                return nombre;
             }
         public EstadoTicket() { }
         public EstadoTicket(string nombre) {
-            Nombre = nombre;
+            nombre = this.nombre;
         }
         public EstadoTicket(int id, string nombre)
         {
             IDEstado = id;
-            Nombre = nombre;
+            nombre = this.nombre;
         }
         }
 }

@@ -27,9 +27,6 @@ namespace VistaWeb
             usuario = usuarioNegocio.ValidarUsuario(tbEmail.Text, tbPassword.Text);
                 if (usuario.Id != 0)
                 {
-                    //usuario = new Usuario();
-                    //usuarioNegocio = new UsuarioNegocio();
-                    //usuario = usuarioNegocio.DevolverUsuario(idUsuario);
                     Session[Session.SessionID + "usuarioLogueado"] = usuario;
                     switch (usuario.tipoUsuario)
                     {
@@ -40,13 +37,10 @@ namespace VistaWeb
                             Response.Redirect("TecnicoDefault.aspx");
                             break;
                         case 2:
-
                             //creo una funcion lista tecnicos y la cargo en session
-
                             listaUsuario = new List<Usuario>();
                             listaUsuario = usuarioNegocio.ListarTecnicos();
                             Session[Session.SessionID + "listaTecnicos"] = listaUsuario;
-
                             Response.Redirect("SupervisorAsignacionTicket.aspx");
                             break;
                         default:
@@ -60,18 +54,6 @@ namespace VistaWeb
                     confirmacionEstado.CssClass = "text-danger";
                     confirmacionEstado.Text = "usuario NO Validado";
                 }
-
-
-                //si el usuario y contraseña se valida
-
-                //colocar en session el usuario
-
-                //dirigirse a Default.aspx
-
-                //si no se valida
-
-                //confirmacionEstado.CssClass = "text-danger";
-                //confirmacionEstado.Text = "usuario NO Validado";
             }
     }
 }
